@@ -1,8 +1,8 @@
 import React from 'react'
 
-const UserItem = () => {
+const UserItem:React.FC<any> = ({user}) => {
   return (
-    <div>UserItem</div>
+    <li>UserItem</li>
   )
 }
 

@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import UsersLists from "../components/UsersLists";
 
 const Users = () => {
-  return (
-    <div>Users</div>
-  )
-}
+  const items = [
+    {
+      image: "https://unsplash.com/photos/Wb8OEa-HVmg",
+      name: "Godsheritage Adeoye",
+      places: 3,
+    },
+  ];
 
-export default Users
+  return (
+    <div>
+      <UsersLists items={items} />
+    </div>
+  );
+};
+
+export default Users;
