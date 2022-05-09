@@ -11,7 +11,7 @@ const UsersLists: React.FC<any> = ({ items }) => {
     );
   }
   return (
-    <ul>
+    <ul className="users-list">
       {items.map((user: userItemTypes, index: any) => (
         <UserItem key={index} user={user} />
       ))}
