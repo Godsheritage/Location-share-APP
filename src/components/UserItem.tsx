@@ -1,11 +1,18 @@
 import React from "react";
+import Avatar from "./shared/UIElements/Avatar";
 
 const UserItem: React.FC<any> = ({ user }) => {
+  const image = {
+    image: "",
+    alt: "",
+    width: "",
+  };
+
   return (
     <li className="user-item">
-      <div className="user-item__content">
+      <div className="user-item__coinfos">
         <div className="user-item__image">
-          <img src={user.image} alt={user.name} />
+          <Avatar infos={image} />
         </div>
         <div className="user-item__info">
           <h2>{user.name}</h2>
