@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
 import MainHeader from "./MainHeader";
 import { Link } from "react-router-dom";
+import Backdrop from "../UIElements/Backdrop";
 
 const MainNavigation: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
     <>
+
+    {isDrawerOpen && <Backdrop  onClick={() => setIsDrawerOpen(false)} />}
       {isDrawerOpen && (
         <SideDrawer>
           <nav className="main-navigation_drawer-nav">
