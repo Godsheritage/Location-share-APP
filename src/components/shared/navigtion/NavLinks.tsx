@@ -8,13 +8,13 @@ const NavLinks = () => {
               <NavLink to='/'>All users</NavLink>
           </li>
           <li>
-              <NavLink to='/'>my places</NavLink>
+              <NavLink to='/u1/places'>my places</NavLink>
           </li>
           <li>
-              <NavLink to='/'>Add users</NavLink>
+              <NavLink to='/places/new'>Add place</NavLink>
           </li>
           <li>
-              <NavLink to='/'>Authenticate</NavLink>
+              <NavLink to='/auth'>Authenticate</NavLink>
           </li>
       </ul>
   )

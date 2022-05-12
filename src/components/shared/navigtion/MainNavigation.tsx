@@ -1,7 +1,8 @@
 import React from 'react';
+import NavLinks from './NavLinks';
+import MainHeader from './MainHeader';
 import { Link } from 'react-router-dom';
 
-import MainHeader from './MainHeader';
 
 const MainNavigation:React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const MainNavigation:React.FC = () => {
         <Link to="/">YourPlaces</Link>
       </h1>
       <nav>
-        ...
+        <NavLinks/>
       </nav>
     </MainHeader>
   );
