@@ -1,12 +1,15 @@
 import React from "react";
 import { userItemTypes } from "../types";
+import Card from "./shared/UIElements/Card";
 import UserItem from "./UserItem";
 
 const UsersLists: React.FC<any> = ({ items }) => {
   if (items.length === 0) {
     return (
       <div className="center">
-        <h2>no users found</h2>
+        <Card>
+          <h2>no users found</h2>
+        </Card>
       </div>
     );
   }
