@@ -1,19 +1,24 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
 import MainHeader from "./MainHeader";
 import { Link } from "react-router-dom";
 
 const MainNavigation: React.FC = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   return (
     <>
-      <SideDrawer>
-        <nav className="main-navigation_drawer-nav">
-          <NavLinks />
-        </nav>
-      </SideDrawer>
+      {isDrawerOpen && (
+        <SideDrawer>
+          <nav className="main-navigation_drawer-nav">
+            <NavLinks />
+          </nav>
+        </SideDrawer>
+      )}
+
       <MainHeader>
-        <button className="main-navigation__menu-btn">
+        <button className="main-navigation__menu-btn" onClick={() => setIsDrawerOpen(true)}>
           <span />
           <span />
           <span />
