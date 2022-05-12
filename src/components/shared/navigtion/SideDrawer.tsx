@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const SideDrawer = () => {
-  return (
-    <div>SideDrawer</div>
-  )
-}
+const SideDrawer: React.FC<any> = ({children}) => {
+  return <aside className="side-drawer">{children}</aside>;
+};
 
-export default SideDrawer
+export default SideDrawer;
