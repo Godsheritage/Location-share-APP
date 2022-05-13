@@ -10,7 +10,7 @@ export interface placeTypes {
     description: string;
     address: string;
     image: string;
-    loation: { lat: string; lng: string };
+    loation: { lat: number; lng: number };
     title: string;
     creator: string;
   }[];
@@ -22,7 +22,7 @@ export interface placeItems {
     description: string;
     address: string;
     image: string;
-    loation: { lat: string; lng: string };
+    loation: { lat: number; lng: number };
     title: string;
     creator: string;
   };
