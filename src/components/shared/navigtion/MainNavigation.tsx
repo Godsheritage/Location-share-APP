@@ -4,24 +4,29 @@ import SideDrawer from "./SideDrawer";
 import MainHeader from "./MainHeader";
 import { Link } from "react-router-dom";
 import Backdrop from "../UIElements/Backdrop";
+import { AnimatePresence, motion } from "framer-motion";
 
 const MainNavigation: React.FC = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   return (
     <>
-
-    {isDrawerOpen && <Backdrop  onClick={() => setIsDrawerOpen(false)} />}
-      {isDrawerOpen && (
-        <SideDrawer>
-          <nav className="main-navigation_drawer-nav">
-            <NavLinks />
-          </nav>
-        </SideDrawer>
-      )}
+      {isDrawerOpen && <Backdrop onClick={() => setIsDrawerOpen(false)} />}
+      <AnimatePresence>
+        {isDrawerOpen && (
+          <SideDrawer className = 'slide-in-left'>
+            <motion.nav className="main-navigation_drawer-nav" exit={{ x:'-100vw' , transition:{duration:0.5}}}>
+              <NavLinks onClick = {() => setIsDrawerOpen(false) }  />
+            </motion.nav>
+          </SideDrawer>
+        )}
+      </AnimatePresence>
 
       <MainHeader>
-        <button className="main-navigation__menu-btn" onClick={() => setIsDrawerOpen(true)}>
+        <button
+          className="main-navigation__menu-btn"
+          onClick={() => setIsDrawerOpen(true)}
+        >
           <span />
           <span />
           <span />
