@@ -7,7 +7,7 @@ const PlaceList: React.FC<placeTypes > = ({ items }) => {
   if (items.length === 0) {
     <div className="place-list center">
       <Card>
-        <h2>no places found maybe cretat one?</h2>
+        <h2>no places found maybe create one?</h2>
         <button>share a place</button>  
       </Card>
     </div>;

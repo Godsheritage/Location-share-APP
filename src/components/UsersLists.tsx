@@ -1,9 +1,9 @@
 import React from "react";
-import { userItemTypes } from "../types";
+import { userItems, user } from "../types";
 import Card from "./shared/UIElements/Card";
 import UserItem from "./UserItem";
 
-const UsersLists: React.FC<any> = ({ items }) => {
+const UsersLists: React.FC<userItems> = ({ items }) => {
   if (items.length === 0) {
     return (
       <div className="center">
@@ -15,7 +15,7 @@ const UsersLists: React.FC<any> = ({ items }) => {
   }
   return (
     <ul className="users-list">
-      {items.map((user: userItemTypes, index: any) => (
+      {items.map((user: user["user"], index: number) => (
         <UserItem key={index} user={user} />
       ))}
     </ul>

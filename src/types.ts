@@ -1,9 +1,3 @@
-export interface userItemTypes {
-  image: string;
-  name: string;
-  places: Number;
-}
-
 export interface placeTypes {
   items: {
     id: string;
@@ -25,5 +19,23 @@ export interface placeItems {
     loation: { lat: number; lng: number };
     title: string;
     creator: string;
+  };
+}
+
+export interface userItems {
+  items: {
+    id: string;
+    name: string;
+    places: number;
+    image: string;
+  }[];
+}
+
+export interface user {
+  user: {
+    id: string;
+    image: string;
+    name: string;
+    places: number;
   };
 }

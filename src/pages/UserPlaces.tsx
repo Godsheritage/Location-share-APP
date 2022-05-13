@@ -1,6 +1,7 @@
 import React from "react";
-import PlaceList from "../components/PlaceList";
 import { placeItems } from "../types";
+import PlaceList from "../components/PlaceList";
+
 const UserPlaces = () => {
   //todo this is going to fetch places from the backend then render
   const DUMMY_PLACES:placeItems['placeItem'][] = [

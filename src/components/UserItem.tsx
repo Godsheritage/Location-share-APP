@@ -2,14 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Card from "./shared/UIElements/Card";
 import Avatar from "./shared/UIElements/Avatar";
+import { user } from "../types";
 
-const UserItem: React.FC<any> = ({ user }) => {
-  // const image = {
-  //   image : {user.image},
-  //   alt : ''
-  //   style : ''
+const UserItem: React.FC<user> = ({ user }) => {
 
-  // }
   return (
     <li className="user-item">
       <Card className="user-item__content">
