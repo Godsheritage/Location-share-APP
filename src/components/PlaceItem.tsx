@@ -7,14 +7,12 @@ const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
     <li className="place-item">
       <Card className="place-item__content">
         <div className="place-item__image">
-          <img src="" alt="" className="src">
-            {placeItem.image}
-          </img>
+          <img src={placeItem.image} alt={placeItem.title} />
         </div>
         <div className="place-item__info">
-          <h2>placeItem.title</h2>
-          <h3>placeItem.address</h3>
-          <p>placeItem.description</p>
+          <h2>{placeItem.title}</h2>
+          <h3>{placeItem.address}</h3>
+          <p>{placeItem.description}</p>
         </div>
         <div className="place-item__actions">
           <button>view on map</button>
