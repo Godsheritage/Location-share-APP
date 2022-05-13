@@ -1,8 +1,9 @@
 import React from "react";
 import Card from "./shared/UIElements/Card";
 import PlaceItem from "./PlaceItem";
+import { placeTypes } from "../types";
 
-const PlaceList: React.FC<any> = ({ items }) => {
+const PlaceList: React.FC<placeTypes > = ({ items }) => {
   if (items.length === 0) {
     <div className="place-list center">
       <Card>
@@ -12,7 +13,7 @@ const PlaceList: React.FC<any> = ({ items }) => {
     </div>;
   }
   return <ul className="place-list">
-      {items.map((place, index) => <PlaceItem key={index} place = {place}/> )}
+      {items.map((place, index) => <PlaceItem key={index} placeItem = {place}/> )}
 
   </ul>
 };

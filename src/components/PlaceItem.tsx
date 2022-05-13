@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import { placeItems } from "../types";
 
-const PlaceItem = () => {
-  return (
-    <div>PlaceItem</div>
-  )
-}
+const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
+  return <div>PlaceItem</div>;
+};
 
-export default PlaceItem
+export default PlaceItem;

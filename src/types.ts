@@ -5,11 +5,25 @@ export interface userItemTypes {
 }
 
 export interface placeTypes {
-  id: string;
-  description: string;
-  address: string;
-  image: string;
-  loation: { lat: string; lng: string };
-  title: string;
-  creator: string;
+  items: {
+    id: string;
+    description: string;
+    address: string;
+    image: string;
+    loation: { lat: string; lng: string };
+    title: string;
+    creator: string;
+  }[];
+}
+
+export interface placeItems {
+  placeItem: {
+    id: string;
+    description: string;
+    address: string;
+    image: string;
+    loation: { lat: string; lng: string };
+    title: string;
+    creator: string;
+  };
 }
