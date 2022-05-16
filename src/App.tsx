@@ -5,7 +5,7 @@ import UserPlaces from "./pages/UserPlaces";
 import Users from "./pages/Users";
 import MainNavigation from "./components/shared/navigtion/MainNavigation";
 
-const App = () => {
+const App:React.FC = () => {
   return (
     <Router>
       <MainNavigation />
