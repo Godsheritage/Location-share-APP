@@ -1,7 +1,6 @@
-import React from "react";
 import { placeItems } from "../types";
-import PlaceList from "../components/PlaceList";
 import { useParams } from "react-router-dom";
+import PlaceList from "../components/PlaceList";
 
 //todo this is going to fetch places from the backend then render
 const DUMMY_PLACES: placeItems["placeItem"][] = [
@@ -29,7 +28,7 @@ const DUMMY_PLACES: placeItems["placeItem"][] = [
 
 const UserPlaces = () => {
   const userId = useParams().userid;
-  const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
+  const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
   return <PlaceList items={loadedPlaces} />;
 };
 
