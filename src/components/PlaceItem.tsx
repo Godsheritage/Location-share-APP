@@ -1,6 +1,7 @@
 import React from "react";
-import Card from "./shared/UIElements/Card";
 import { placeItems } from "../types";
+import Card from "./shared/UIElements/Card";
+import Button from "./shared/form Elements/Button";
 
 const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
   return (
@@ -15,9 +16,9 @@ const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
           <p>{placeItem.description}</p>
         </div>
         <div className="place-item__actions">
-          <button>view on map</button>
-          <button>edit</button>
-          <button>delete</button>
+          <Button inverse>view on map</Button>
+          <Button to = {`/places/${placeItem.id}`}>edit</Button>
+          <Button danger>delete</Button>
         </div>
       </Card>
     </li>
