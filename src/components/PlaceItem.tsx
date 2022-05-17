@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Card from "./shared/UIElements/Card";
 import Modal from "./shared/UIElements/Modals/Modal";
 import Button from "./shared/form Elements/Button";
+import Map from "./shared/UIElements/Map";
 
 const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
   const [showMap, setShowMap] = useState<boolean>(false);
@@ -19,7 +20,7 @@ const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
         footer={<Button onClick={() => setShowMap(false)}>CLOSE</Button>}
       >
         <div className="map-container">
-          <h2>the map</h2>
+          <Map center={placeItem.loation} zoom={16} style = {{width:'100%', height:'100%' }} />
         </div>
       </Modal>
       <li className="place-item">

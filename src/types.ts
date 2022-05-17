@@ -39,3 +39,16 @@ export interface user {
     places: number;
   };
 }
+
+interface LatLng {
+  lat: number;
+  lng: number;
+}
+export interface mapTypes {
+  center: LatLng;
+  zoom: number;
+  style: {
+    width: string;
+    height: string;
+  };
+}
