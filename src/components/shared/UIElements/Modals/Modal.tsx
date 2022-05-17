@@ -27,11 +27,14 @@ const ModalOverlay: React.FC<any> = (props) => {
   return ReactDOM.createPortal(content, document.querySelector("modal-hook")!);
 };
 
-
-
-
 const Modal: React.FC<any> = (props) => {
-  return <>{props.show && <Backdrop onClick={props.onCancel} />}</>;
+  return (
+    <>
+      {props.show && <Backdrop onClick={props.onCancel} />}
+      //todo add css transitions
+      <ModalOverlay {...props} />
+    </>
+  );
 };
 
 export default Modal;
