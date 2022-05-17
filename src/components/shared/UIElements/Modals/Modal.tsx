@@ -5,7 +5,13 @@ import { motion } from "framer-motion";
 
 const ModalOverlay: React.FC<any> = (props) => {
   const content = (
-    <div className={`modal ${props.className}`} style={props.style}>
+    <motion.div
+      style={props.style}
+      className={`modal ${props.className}`}
+      initial={{ opacity: 0, y: "-100vw" }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
       <header className={`modal__header ${props.headerClass}`}>
         <h2>{props.header}</h2>
       </header>
@@ -22,17 +28,20 @@ const ModalOverlay: React.FC<any> = (props) => {
           {props.footer}
         </footer>
       </form>
-    </div>
+    </motion.div>
   );
-  return ReactDOM.createPortal(content, document.querySelector("modal-hook")!);
+  return ReactDOM.createPortal(content, document.getElementById("modal-hook")!);
 };
 
 const Modal: React.FC<any> = (props) => {
   return (
     <>
-      {props.show && <Backdrop onClick={props.onCancel} />}
-      //todo add css transitions
-      <ModalOverlay {...props} />
+      {props.show && (
+        <div>
+          {" "}
+          <ModalOverlay {...props} /> <Backdrop onClick={props.onCancel} />
+        </div>
+      )}
     </>
   );
 };

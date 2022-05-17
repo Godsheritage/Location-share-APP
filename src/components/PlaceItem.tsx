@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { placeItems } from "../types";
+import { motion } from "framer-motion";
 import Card from "./shared/UIElements/Card";
 import Modal from "./shared/UIElements/Modals/Modal";
 import Button from "./shared/form Elements/Button";
