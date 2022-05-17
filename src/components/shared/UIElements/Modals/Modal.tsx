@@ -1,7 +1,7 @@
 import "./modal.css";
 import ReactDOM from "react-dom";
 import Backdrop from "../Backdrop";
-import { MotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 
 const ModalOverlay: React.FC<any> = (props) => {
   const content = (
@@ -27,11 +27,11 @@ const ModalOverlay: React.FC<any> = (props) => {
   return ReactDOM.createPortal(content, document.querySelector("modal-hook")!);
 };
 
+
+
+
 const Modal: React.FC<any> = (props) => {
-  return <>{props.show && <Backdrop onClick={props.onCancel}/>}
-  
-  
-  </>;
+  return <>{props.show && <Backdrop onClick={props.onCancel} />}</>;
 };
 
 export default Modal;
