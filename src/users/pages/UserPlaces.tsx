@@ -1,6 +1,6 @@
 import { placeItems } from "../../types";
 import { useParams } from "react-router-dom";
-import PlaceList from "../../components/PlaceList";
+import PlaceList from "../../places/components/PlaceList";
 
 //todo this is going to fetch places from the backend then render
 const DUMMY_PLACES: placeItems["placeItem"][] = [

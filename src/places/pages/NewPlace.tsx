@@ -1,12 +1,13 @@
-import React from 'react'
-import Input from '../../components/Input'
-import './newPlace.css'
-const NewPlace = () => {
+import React from "react";
+import Input from "../../shared/form Elements/Input";
+import "./newPlace.css";
+
+const NewPlace:React.FC = () => {
   return (
     <form action="" className="place-form">
-      <Input type='text' label = 'Title' element='input'/>
+      <Input type="text" label="Title" element="input" />
     </form>
-  )
-}
+  );
+};
 
-export default NewPlace
+export default NewPlace;
