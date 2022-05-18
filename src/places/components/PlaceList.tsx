@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "../shared/UIElements/Card";
+import Card from "../../shared/UIElements/Card";
 import PlaceItem from "./PlaceItem";
-import { placeTypes } from "../types";
+import { placeTypes } from "../../types";
 
 const PlaceList: React.FC<placeTypes > = ({ items }) => {
   if (items.length === 0) {

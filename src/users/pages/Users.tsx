@@ -1,6 +1,6 @@
 import React from "react";
 import UsersLists from "../components/UsersLists";
-import { userItems } from "../types";
+import { userItems } from "../../types";
 
 const Users:React.FC = () => {
   const items:userItems['items'] = [

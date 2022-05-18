@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NewPlace from "./places/pages/NewPlace";
 import UserPlaces from "./users/pages/UserPlaces";
-import Users from "./pages/Users";
+import Users from "./users/pages/Users";
 import MainNavigation from "./shared/navigtion/MainNavigation";
 
 const App:React.FC = () => {
