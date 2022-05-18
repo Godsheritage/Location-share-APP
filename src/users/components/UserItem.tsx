@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Card from "./shared/UIElements/Card";
-import Avatar from "./shared/UIElements/Avatar";
-import { user } from "../types";
+import Card from "../../shared/UIElements/Card";
+import Avatar from "../../shared/UIElements/Avatar";
+import { user } from "../../types";
 
 const UserItem: React.FC<user> = ({ user }) => {
 

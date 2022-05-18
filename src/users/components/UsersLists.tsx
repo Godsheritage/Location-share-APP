@@ -1,6 +1,6 @@
 import React from "react";
 import { userItems, user } from "../types";
-import Card from "./shared/UIElements/Card";
+import Card from "../shared/UIElements/Card";
 import UserItem from "./UserItem";
 
 const UsersLists: React.FC<userItems> = ({ items }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./shared/UIElements/Card";
+import Card from "../shared/UIElements/Card";
 import PlaceItem from "./PlaceItem";
 import { placeTypes } from "../types";
 

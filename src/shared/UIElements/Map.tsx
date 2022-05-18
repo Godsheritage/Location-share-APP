@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useEffect } from "react";
-import { mapTypes } from "../../../types";
+import { mapTypes } from "../../types";
 
 const Map: React.FC<mapTypes> = ({ center, zoom, style }) => {
   const mapRef = useRef<any>();
