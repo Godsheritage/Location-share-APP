@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Locator is a web application
+Locator is a web application tht allows you to share 
 
 ## Available Scripts
 
