@@ -5,10 +5,13 @@ const inputReducer = (state: any, action: any) => {
   switch (action.type) {
     case "CHANGE":
       return {};
+    default:
+      return state;
   }
 };
 
 const Input: React.FC<any> = ({ type, label, element, id }) => {
+  useReducer(inputReducer);
   const elements =
     element === "input" ? (
       <input type={type} id={id} />
