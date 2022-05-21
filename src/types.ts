@@ -52,3 +52,13 @@ export interface mapTypes {
     height: string;
   };
 }
+
+export interface stateTypes {
+  value: string;
+  isValid: boolean;
+}
+
+export interface actionTypes {
+  type: string;
+  value: string;
+}
