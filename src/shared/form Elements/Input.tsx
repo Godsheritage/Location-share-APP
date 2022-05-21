@@ -15,17 +15,28 @@ const inputReducer:any = (state: any, action: any) => {
 };
 
 const Input: React.FC<any> = ({ type, label, element, id }) => {
- const [inputReducer, dispatch] = useReducer(inputReducer, {value:'', isValid:false});
+ const [inputState, dispatch] = useReducer(inputReducer, {value:'', isValid:false});
+
+ const changeHandler = (e) => {
+ dispatch({
+   type: 'CHANGE',
+    val:e.tatget.value
+ })
+ }
+
+
+
   const elements =
     element === "input" ? (
-      <input type={type} id={id} />
+      <input type={type} id={id} value={inputState.value} />
     ) : (
-      <textarea id={id} rows={3} />
+      <textarea id={id} rows={3} value = {inputState.value}/>
     );
   return (
-    <div className="form-control">
+    <div className={`form-control` ${!inputState.isValid && 'form-control--invalid'}}>
       <label htmlFor={id}>{label}</label>
       {elements}
+      {!inputState.isValid && <p>{errorText}</p>}
     </div>
   );
 };
