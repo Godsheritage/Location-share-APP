@@ -1,17 +1,21 @@
 import React, { useReducer } from "react";
 import "./input.css";
 
-const inputReducer = (state: any, action: any) => {
+const inputReducer:any = (state: any, action: any) => {
   switch (action.type) {
     case "CHANGE":
-      return {};
+      return {
+        ...state,
+        value: action.val,
+        isValid: true,
+      };
     default:
       return state;
   }
 };
 
 const Input: React.FC<any> = ({ type, label, element, id }) => {
-  useReducer(inputReducer);
+ const [inputReducer, dispatch] = useReducer(inputReducer, {value:'', isValid:false});
   const elements =
     element === "input" ? (
       <input type={type} id={id} />
