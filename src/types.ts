@@ -53,12 +53,20 @@ export interface mapTypes {
   };
 }
 
-export interface stateTypes {
+export interface reducerStateTypes {
   value: string;
   isValid: boolean;
 }
 
-export interface actionTypes {
+export interface reducerActionTypes {
   type: string;
   value: string;
+}
+
+export interface inputPropTypes {
+  type: string;
+  label: string;
+  element: string;
+  id?: string;
+  errorText: string;
 }

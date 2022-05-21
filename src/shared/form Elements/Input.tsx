@@ -1,8 +1,12 @@
 import { useReducer } from "react";
-import { stateTypes, actionTypes } from "../../types";
+import {
+  reducerStateTypes,
+  reducerActionTypes,
+  inputPropTypes,
+} from "../../types";
 import "./input.css";
 
-const inputReducer = (state: stateTypes, action: actionTypes) => {
+const inputReducer = (state: reducerStateTypes, action: reducerActionTypes) => {
   switch (action.type) {
     case "CHANGE":
       return {
@@ -15,11 +19,19 @@ const inputReducer = (state: stateTypes, action: actionTypes) => {
   }
 };
 
-const Input: React.FC<any> = ({ type, label, element, id, errorText }) => {
-  const [inputState, dispatch] = useReducer(inputReducer, {
-    value: "",
-    isValid: false,
-  });
+const initialState = {
+  value: "",
+  isValid: false,
+};
+
+const Input: React.FC<inputPropTypes> = ({
+  type,
+  label,
+  element,
+  id,
+  errorText,
+}) => {
+  const [inputState, dispatch] = useReducer(inputReducer, initialState);
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
