@@ -61,6 +61,7 @@ export interface reducerStateTypes {
 export interface reducerActionTypes {
   type: string;
   val: string;
+  validators:any
 }
 
 export interface inputPropTypes {
@@ -69,4 +70,5 @@ export interface inputPropTypes {
   element: string;
   id?: string;
   errorText: string;
+  validators:any
 }

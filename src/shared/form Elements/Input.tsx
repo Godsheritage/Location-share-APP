@@ -13,7 +13,7 @@ const inputReducer = (state: reducerStateTypes, action: reducerActionTypes) => {
       return {
         ...state,
         value: action.val,
-        isValid: true
+        isValid: validate(action.val, action.validators)
       };
     default:
       return state;
@@ -31,6 +31,7 @@ const Input: React.FC<inputPropTypes> = ({
   element,
   id,
   errorText,
+  validators
 }) => {
   const [inputState, dispatch] = useReducer(inputReducer, initialState);
 
@@ -38,6 +39,7 @@ const Input: React.FC<inputPropTypes> = ({
     dispatch({
       type: "CHANGE",
       val: e.target.value,
+      validators:validators
     });
   };
 
