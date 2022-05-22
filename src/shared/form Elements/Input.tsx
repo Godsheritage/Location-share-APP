@@ -12,8 +12,8 @@ const inputReducer = (state: reducerStateTypes, action: reducerActionTypes) => {
     case "CHANGE":
       return {
         ...state,
-        value: action.value,
-        isValid: validate(action.value)
+        value: action.val,
+        isValid: true
       };
     default:
       return state;
@@ -37,13 +37,13 @@ const Input: React.FC<inputPropTypes> = ({
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: "CHANGE",
-      value: e.target.value,
+      val: e.target.value,
     });
   };
 
   const elements =
     element === "input" ? (
-      <input type={type} id={id} value={inputState.value} />
+      <input type={type} id={id} value={inputState.value} onChange={changeHandler}/>
     ) : (
       <textarea id={id} rows={3} value={inputState.value} />
     );

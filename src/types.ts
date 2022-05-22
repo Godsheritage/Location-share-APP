@@ -60,7 +60,7 @@ export interface reducerStateTypes {
 
 export interface reducerActionTypes {
   type: string;
-  value: string;
+  val: string;
 }
 
 export interface inputPropTypes {
