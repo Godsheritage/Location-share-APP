@@ -5,6 +5,7 @@ import {
   inputPropTypes,
 } from "../../types";
 import "./input.css";
+import { validate } from "../util/validators";
 
 const inputReducer = (state: reducerStateTypes, action: reducerActionTypes) => {
   switch (action.type) {
@@ -12,7 +13,7 @@ const inputReducer = (state: reducerStateTypes, action: reducerActionTypes) => {
       return {
         ...state,
         value: action.value,
-        isValid: true,
+        isValid: validate(action.value)
       };
     default:
       return state;
