@@ -56,12 +56,13 @@ export interface mapTypes {
 export interface reducerStateTypes {
   value: string;
   isValid: boolean;
+  isTouched:boolean
 }
 
 export interface reducerActionTypes {
   type: string;
-  val: string;
-  validators:any
+  val?: string;
+  validators?:any
 }
 
 export interface inputPropTypes {
