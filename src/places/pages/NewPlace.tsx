@@ -6,6 +6,15 @@ import { formActionTypes, initialFormState } from "../../types";
 
 const NewPlace: React.FC = () => {
   const formReducer = (state: initialFormState, action: formActionTypes) => {
+    for(let state in initialState.inputs){
+      if(state === action.inputId){
+        state.value:action.value
+
+      }
+    }
+    
+
+
     switch (action.type) {
       case "INPUT_CHANGE":
         return {
@@ -22,13 +31,14 @@ const NewPlace: React.FC = () => {
         value: "",
         isValid: false,
       },
-      isValid: false,
     },
+    isValid: false,
   };
 
   const [state, dispatch] = useReducer(formReducer, initialState);
 
-  const inputHandler = () => {
+  const inputHandler = (id:string, value:string, isValid:boolean) => {
+    dispatch({type:'INPUT_CHANGE', inputId:id, value, isValid})
 
   }
 

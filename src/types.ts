@@ -72,7 +72,7 @@ export interface inputPropTypes {
   id?: string;
   errorText: string;
   validators: any;
-  onInput:any
+  onInput: any;
 }
 
 export interface initialFormState {
@@ -81,10 +81,13 @@ export interface initialFormState {
       value: string;
       isValid: boolean;
     };
-    isValid: boolean;
   };
+  isValid: boolean;
 }
 
 export interface formActionTypes {
-  type:string
+  type: string;
+  inputId: string;
+  value: string;
+  isValid: boolean;
 }
