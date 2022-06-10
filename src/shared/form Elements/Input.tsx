@@ -50,7 +50,7 @@ const Input: React.FC<inputPropTypes> = ({
     dispatch({
       type: "CHANGE",
       val: e.target.value,
-      validators: validators,
+      validators
     });
   };
 

@@ -27,7 +27,11 @@ const NewPlace: React.FC = () => {
   };
 
   const [state, dispatch] = useReducer(formReducer, initialState);
-  
+
+  const inputHandler = () => {
+
+  }
+
   return (
     <form action="" className="place-form">
       <Input
@@ -36,6 +40,7 @@ const NewPlace: React.FC = () => {
         label="Title"
         element="input"
         errorText="please enter a valid title"
+        onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE()]}
       />
     </form>

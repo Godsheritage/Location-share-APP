@@ -72,6 +72,7 @@ export interface inputPropTypes {
   id?: string;
   errorText: string;
   validators: any;
+  onInput:any
 }
 
 export interface initialFormState {
