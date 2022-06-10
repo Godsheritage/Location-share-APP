@@ -56,13 +56,13 @@ export interface mapTypes {
 export interface reducerStateTypes {
   value: string;
   isValid: boolean;
-  isTouched:boolean
+  isTouched: boolean;
 }
 
 export interface reducerActionTypes {
   type: string;
   val?: string;
-  validators?:any
+  validators?: any;
 }
 
 export interface inputPropTypes {
@@ -71,5 +71,15 @@ export interface inputPropTypes {
   element: string;
   id?: string;
   errorText: string;
-  validators:any
+  validators: any;
+}
+
+export interface initialFormState {
+  inputs: {
+    title: {
+      value: string;
+      isValid: boolean;
+    };
+    isValid: boolean;
+  };
 }
