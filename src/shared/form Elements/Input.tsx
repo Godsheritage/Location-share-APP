@@ -7,11 +7,10 @@ import {
 import "./input.css";
 import { validate } from "../util/validators";
 
-
 //reducer
 const inputReducer = (state: reducerStateTypes, action: any) => {
   switch (action.type) {
-    case "CHANGE": 
+    case "CHANGE":
       return {
         ...state,
         value: action.val,
@@ -34,7 +33,6 @@ const initialState = {
   isTouched: false,
 };
 
-
 const Input: React.FC<inputPropTypes> = ({
   type,
   label,
@@ -42,15 +40,21 @@ const Input: React.FC<inputPropTypes> = ({
   id,
   errorText,
   validators,
+  onInput,
 }) => {
   const [inputState, dispatch] = useReducer(inputReducer, initialState);
 
-  //input onChange 
+  const { value, isValid } = initialState;
+  useEffect(() => {
+    onInput(id, value, isValid);
+  }, [id, value, isValid, onInput]);
+
+  //input onChange
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: "CHANGE",
       val: e.target.value,
-      validators
+      validators,
     });
   };
 

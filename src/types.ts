@@ -91,3 +91,7 @@ export interface formActionTypes {
   value: string;
   isValid: boolean;
 }
+
+export interface formReducerTypes {
+  formReducer: (state: any, action: formActionTypes) => void;
+}
