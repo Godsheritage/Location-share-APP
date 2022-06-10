@@ -11,7 +11,7 @@ import { validate } from "../util/validators";
 //reducer
 const inputReducer = (state: reducerStateTypes, action: any) => {
   switch (action.type) {
-    case "CHANGE":
+    case "CHANGE": 
       return {
         ...state,
         value: action.val,
