@@ -1,6 +1,5 @@
-import React from "react";
-import Input from "../../shared/form Elements/Input";
 import "./newPlace.css";
+import Input from "../../shared/form Elements/Input";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 
 const NewPlace: React.FC = () => {
