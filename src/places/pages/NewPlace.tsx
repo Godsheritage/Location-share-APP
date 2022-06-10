@@ -6,9 +6,16 @@ import { initialFormState } from "../../types";
 
 const NewPlace: React.FC = () => {
   const formReducer = (state, action) => {
-    
+    switch (action.type) {
+      case "INPUT_CHANGE":
+        return {
+          ...state,
+        };
+      default:
+        return state;
+    }
   };
-  const initialState:initialFormState = {
+  const initialState: initialFormState = {
     inputs: {
       title: {
         value: "",
@@ -17,7 +24,7 @@ const NewPlace: React.FC = () => {
       isValid: false,
     },
   };
- const [state, dispatch ] =  useReducer(formReducer, initialState);
+  const [state, dispatch] = useReducer(formReducer, initialState);
   return (
     <form action="" className="place-form">
       <Input
