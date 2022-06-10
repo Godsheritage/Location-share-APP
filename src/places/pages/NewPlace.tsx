@@ -2,10 +2,10 @@ import "./newPlace.css";
 import Input from "../../shared/form Elements/Input";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import { useReducer } from "react";
-import { initialFormState } from "../../types";
+import { formActionTypes, initialFormState } from "../../types";
 
 const NewPlace: React.FC = () => {
-  const formReducer = (state, action) => {
+  const formReducer = (state: initialFormState, action: formActionTypes) => {
     switch (action.type) {
       case "INPUT_CHANGE":
         return {
@@ -15,6 +15,7 @@ const NewPlace: React.FC = () => {
         return state;
     }
   };
+
   const initialState: initialFormState = {
     inputs: {
       title: {
@@ -24,7 +25,9 @@ const NewPlace: React.FC = () => {
       isValid: false,
     },
   };
+
   const [state, dispatch] = useReducer(formReducer, initialState);
+  
   return (
     <form action="" className="place-form">
       <Input

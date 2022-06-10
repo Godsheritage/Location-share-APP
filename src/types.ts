@@ -83,3 +83,7 @@ export interface initialFormState {
     isValid: boolean;
   };
 }
+
+export interface formActionTypes {
+  type:string
+}
