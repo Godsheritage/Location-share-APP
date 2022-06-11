@@ -60,6 +60,14 @@ const NewPlace: React.FC = () => {
         onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE()]}
       />
+      <Input
+        id="description"
+        label="Title"
+        element="textarea"
+        errorText="description must be greater than 8 digits"
+        onInput={inputHandler}
+        validators={[VALIDATOR_REQUIRE()]}
+      />
     </form>
   );
 };
