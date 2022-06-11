@@ -1,6 +1,9 @@
 import "./newPlace.css";
 import Input from "../../shared/form Elements/Input";
-import { VALIDATOR_REQUIRE,VALIDATOR_MINLENGTH } from "../../shared/util/validators";
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH,
+} from "../../shared/util/validators";
 import { useCallback, useReducer } from "react";
 import { formActionTypes, initialFormState } from "../../types";
 
@@ -66,11 +69,11 @@ const NewPlace: React.FC = () => {
       />
       <Input
         id="description"
-        label="Title"
+        label="Description"
         element="textarea"
         errorText="description must be greater than 8 digits"
         onInput={inputHandler}
-        validators={[VALIDATOR_REQUIRE()]}
+        validators={[VALIDATOR_MINLENGTH(8)]}
       />
     </form>
   );

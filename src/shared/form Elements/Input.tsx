@@ -50,7 +50,7 @@ const Input: React.FC<inputPropTypes> = ({
   }, [id, value, isValid, onInput]);
 
   //input onChange
-  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const changeHandler = (e: any) => {
     dispatch({
       type: "CHANGE",
       val: e.target.value,
@@ -79,6 +79,7 @@ const Input: React.FC<inputPropTypes> = ({
         id={id}
         rows={3}
         value={inputState.value}
+        onChange={changeHandler}
         onBlur={touchHandlander}
       />
     );
