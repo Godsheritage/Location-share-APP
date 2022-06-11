@@ -66,7 +66,7 @@ export interface reducerActionTypes {
 }
 
 export interface inputPropTypes {
-  type: string;
+  type?: string;
   label: string;
   element: string;
   id?: string;
@@ -78,6 +78,10 @@ export interface inputPropTypes {
 export interface initialFormState {
   inputs: {
     title: {
+      value: string;
+      isValid: boolean;
+    };
+    description: {
       value: string;
       isValid: boolean;
     };

@@ -1,6 +1,6 @@
 import "./newPlace.css";
 import Input from "../../shared/form Elements/Input";
-import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
+import { VALIDATOR_REQUIRE,VALIDATOR_MINLENGTH } from "../../shared/util/validators";
 import { useCallback, useReducer } from "react";
 import { formActionTypes, initialFormState } from "../../types";
 
@@ -33,6 +33,10 @@ const NewPlace: React.FC = () => {
   const initialState: initialFormState = {
     inputs: {
       title: {
+        value: "",
+        isValid: false,
+      },
+      description: {
         value: "",
         isValid: false,
       },
