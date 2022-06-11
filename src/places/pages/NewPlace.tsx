@@ -6,6 +6,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import Button from "../../shared/form Elements/Button";
 
 const NewPlace: React.FC = () => {
   const formReducer = (state: any, action: formActionTypes) => {
@@ -75,6 +76,7 @@ const NewPlace: React.FC = () => {
         onInput={inputHandler}
         validators={[VALIDATOR_MINLENGTH(8)]}
       />
+      <Button type="submit" disabled={!state.isValid}>Submit</Button>
     </form>
   );
 };
