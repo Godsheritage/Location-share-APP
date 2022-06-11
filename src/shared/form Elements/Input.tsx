@@ -1,13 +1,13 @@
 import { useReducer, useEffect } from "react";
+import "./input.css";
 import {
   reducerStateTypes,
   reducerActionTypes,
   inputPropTypes,
 } from "../../types";
-import "./input.css";
 import { validate } from "../util/validators";
 
-//reducer
+// input reducer
 const inputReducer = (state: reducerStateTypes, action: any) => {
   switch (action.type) {
     case "CHANGE":
