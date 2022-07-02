@@ -57,8 +57,9 @@ const NewPlace: React.FC = () => {
     []
   );
 
+  
   return (
-    <form action="" className="place-form">
+    <form action="" className="place-form" onSubmit={placeSubmitHandler}>
       <Input
         type="text"
         id="title"
