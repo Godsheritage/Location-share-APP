@@ -57,7 +57,12 @@ const NewPlace: React.FC = () => {
     []
   );
 
-  
+  const placeSubmitHandler = (event:any) =>{
+    event.preventDefault()
+    console.log(initialState.inputs)
+
+  }
+
   return (
     <form action="" className="place-form" onSubmit={placeSubmitHandler}>
       <Input
