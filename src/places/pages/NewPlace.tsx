@@ -82,6 +82,15 @@ const NewPlace: React.FC = () => {
         onInput={inputHandler}
         validators={[VALIDATOR_MINLENGTH(8)]}
       />
+        <Input
+        type="text"
+        id="Adress"
+        label="Adress"
+        element="input"
+        errorText="please enter a valid address"
+        onInput={inputHandler}
+        validators={[VALIDATOR_REQUIRE()]}
+      />
       <Button type="submit" disabled={!state.isValid}>Submit</Button>
     </form>
   );
