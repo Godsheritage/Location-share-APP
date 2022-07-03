@@ -73,8 +73,8 @@ const NewPlace: React.FC = () => {
         errorText="please enter a valid title"
         onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE()]}
-      />
-      <Input
+      /> 
+      <Input 
         id="description"
         label="Description" 
         element="textarea"
