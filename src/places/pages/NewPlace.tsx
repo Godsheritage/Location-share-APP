@@ -76,7 +76,7 @@ const NewPlace: React.FC = () => {
       />
       <Input
         id="description"
-        label="Description"
+        label="Description" 
         element="textarea"
         errorText="description must be greater than 8 digits"
         onInput={inputHandler}
