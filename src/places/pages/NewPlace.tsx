@@ -82,7 +82,7 @@ const NewPlace: React.FC = () => {
         onInput={inputHandler}
         validators={[VALIDATOR_MINLENGTH(8)]}
       />
-        <Input
+        <Input 
         type="text"
         id="Adress"
         label="Adress"
