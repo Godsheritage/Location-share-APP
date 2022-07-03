@@ -87,7 +87,7 @@ const NewPlace: React.FC = () => {
         id="Adress"
         label="Adress"
         element="input"
-        errorText="please enter a valid address"
+        errorText="please enter a valid address" 
         onInput={inputHandler}
         validators={[VALIDATOR_REQUIRE()]}
       />
