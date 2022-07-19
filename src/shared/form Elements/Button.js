@@ -27,7 +27,7 @@ const Button = props => {
       </Link>
     );
   }
-  return (
+  return ( 
     <button
       className={`button button--${props.size || 'default'} ${props.inverse &&
         'button--inverse'} ${props.danger && 'button--danger'}`}

@@ -14,9 +14,7 @@ const SideDrawer: React.FC<any> = ({ children }) => {
       variants={variants}
       initial="hidden"
       animate="visible"
-      
     >
-
       {children}
     </motion.aside>
   );

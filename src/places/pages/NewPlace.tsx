@@ -75,7 +75,7 @@ const NewPlace: React.FC = () => {
         validators={[VALIDATOR_REQUIRE()]}
       /> 
       <Input 
-        id="description"
+        id="description" 
         label="Description" 
         element="textarea"
         errorText="description must be greater than 8 digits"
