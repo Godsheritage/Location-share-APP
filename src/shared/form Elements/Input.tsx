@@ -1,5 +1,5 @@
-import { useReducer, useEffect } from "react";
 import "./input.css";
+import { useReducer, useEffect } from "react";
 import {
   reducerStateTypes,
   reducerActionTypes,
