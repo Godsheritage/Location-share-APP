@@ -44,6 +44,10 @@ const NewPlace: React.FC = () => {
         value: "",
         isValid: false,
       },
+      address: {
+        value: "",
+        isValid: false,
+      }
     },
     isValid: false,
   };
@@ -84,7 +88,7 @@ const NewPlace: React.FC = () => {
       />
         <Input 
         type="text"
-        id="Adress"
+        id="adress"
         label="Adress"
         element="input"
         errorText="please enter a valid address" 

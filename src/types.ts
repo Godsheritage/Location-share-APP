@@ -87,6 +87,10 @@ export interface initialFormState {
       value: string;
       isValid: boolean;
     };
+    address: {
+      value: string;
+      isValid: boolean;
+    };
   };
   isValid: boolean;
 }
