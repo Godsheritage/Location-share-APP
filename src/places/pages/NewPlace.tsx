@@ -1,12 +1,12 @@
-import "./newPlace.css";
-import { useCallback, useReducer } from "react";
-import Input from "../../shared/form Elements/Input";
-import { formActionTypes, initialFormState } from "../../types";
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import "./placeForm.css";
+import { useCallback, useReducer } from "react";
+import Input from "../../shared/form Elements/Input";
 import Button from "../../shared/form Elements/Button";
+import { formActionTypes, initialFormState } from "../../types";
 
 const NewPlace: React.FC = () => {
   const formReducer = (state: any, action: formActionTypes) => {

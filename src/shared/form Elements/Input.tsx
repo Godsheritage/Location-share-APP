@@ -4,8 +4,8 @@ import {
   reducerActionTypes,
   inputPropTypes,
 } from "../../types";
-import { useReducer, useEffect } from "react";
 import { validate } from "../util/validators";
+import { useReducer, useEffect } from "react";
 
 // input reducer
 const inputReducer = (state: reducerStateTypes, action: any) => {
@@ -27,11 +27,6 @@ const inputReducer = (state: reducerStateTypes, action: any) => {
 };
 
 //initial reducer state
-const initialState = {
-  value: "",
-  isValid: false,
-  isTouched: false,
-};
 
 const Input: React.FC<inputPropTypes> = ({
   type,
@@ -41,14 +36,20 @@ const Input: React.FC<inputPropTypes> = ({
   errorText,
   validators,
   onInput,
-  value
+  value,
+  valid,
 }) => {
+  const initialState = {
+    value: value || "",
+    isValid: valid || false,
+    isTouched: false,
+  };
   const [inputState, dispatch] = useReducer(inputReducer, initialState);
 
-  const { value, isValid } = initialState;
+  const { isValid } = initialState;
   useEffect(() => {
-    onInput(id, value, isValid);
-  }, [id, value, isValid, onInput]);
+    onInput(id, initialState.value, isValid);
+  }, [id, initialState.value, isValid, onInput]);
 
   //input onChange
   const changeHandler = (e: any) => {

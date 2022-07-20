@@ -67,6 +67,7 @@ export interface reducerActionTypes {
 
 export interface inputPropTypes {
   value?:string;
+  valid?:boolean;
   type?: string;
   label: string;
   element: string;
