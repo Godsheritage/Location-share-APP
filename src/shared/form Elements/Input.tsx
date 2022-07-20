@@ -1,10 +1,10 @@
 import "./input.css";
-import { useReducer, useEffect } from "react";
 import {
   reducerStateTypes,
   reducerActionTypes,
   inputPropTypes,
 } from "../../types";
+import { useReducer, useEffect } from "react";
 import { validate } from "../util/validators";
 
 // input reducer
@@ -41,6 +41,7 @@ const Input: React.FC<inputPropTypes> = ({
   errorText,
   validators,
   onInput,
+  value
 }) => {
   const [inputState, dispatch] = useReducer(inputReducer, initialState);
 

@@ -66,6 +66,7 @@ export interface reducerActionTypes {
 }
 
 export interface inputPropTypes {
+  value?:string;
   type?: string;
   label: string;
   element: string;

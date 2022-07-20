@@ -3,7 +3,10 @@ import Input from "../../shared/form Elements/Input";
 import Button from "../../shared/form Elements/Button";
 import { useParams } from "react-router-dom";
 import { DUMMY_PLACES } from "../../users/pages/UserPlaces";
-import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH,
+} from "../../shared/util/validators";
 
 const UpdatePlace = () => {
   const placeId = useParams().placeId;
@@ -16,20 +19,34 @@ const UpdatePlace = () => {
       </div>
     );
   }
-  return <div>
-    <Input
-    type="text"
-    id="title"
-    element="input"
-    label="Title"   
-validators={[VALIDATOR_REQUIRE()]}
-
-errorText="please enter a valid input"
-value={identifiedPlace.title}
-valid={true}
-onInput={()=>{}}
-    />
-  </div>;
+  return (
+    <form>
+      <Input
+        type="text"
+        id="title"
+        element="input"
+        label="Title"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="please enter a valid input"
+        value={identifiedPlace.title}
+        valid={true}
+        onInput={() => {}}
+      />
+      <Input
+        id="description"
+        element="textarea"
+        label="Description"
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText="please enter a valid description (min 5 characters)"
+        value={identifiedPlace.description}
+        valid={true}
+        onInput={() => {}}
+      />
+      <Button type="submit" disabled={true}>
+        UPDATE PLACE
+      </Button>
+    </form>
+  );
 };
 
 export default UpdatePlace;
