@@ -7,6 +7,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import React from "react";
 
 const UpdatePlace = () => {
   const placeId = useParams().placeId;
@@ -19,8 +20,11 @@ const UpdatePlace = () => {
       </div>
     );
   }
+  const placeUpdateSubmitHandler = (event:React.FormEvent) => {
+    event.preventDefault();
+  };
   return (
-    <form className="place-form">
+    <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
       <Input
         type="text"
         id="title"
