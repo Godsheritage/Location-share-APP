@@ -8,6 +8,14 @@ import Button from "../../shared/form Elements/Button";
 
 const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
   const [showMap, setShowMap] = useState<boolean>(false);
+  const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false);
+  const showConfirmDeleteHandler = () => {
+    setShowConfirmModal(true);
+  };
+
+  const confirmDeleteHandler = () => {
+    console.log('deleted')
+  };
 
   return (
     <>
@@ -20,8 +28,27 @@ const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
         footer={<Button onClick={() => setShowMap(false)}>CLOSE</Button>}
       >
         <div className="map-container">
-          <Map center={placeItem.loation} zoom={16} style = {{width:'100%', height:'100%' }} />
+          <Map
+            center={placeItem.loation}
+            zoom={16}
+            style={{ width: "100%", height: "100%" }}
+          />
         </div>
+      </Modal>
+
+      <Modal
+        show={showConfirmModal}
+        onCancel={()=> setShowConfirmModal(false)}
+        header="Are you sure?"
+        footerClass="place-item__modal-actions"
+        footer={
+          <>
+            <Button inverse>CANCEL</Button>
+            <Button danger>DELETE</Button>
+          </>
+        }
+      >
+        <p>do you want to delete this place</p>
       </Modal>
       <li className="place-item">
         <Card className="place-item__content">
