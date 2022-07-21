@@ -9,12 +9,10 @@ import Button from "../../shared/form Elements/Button";
 const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
   const [showMap, setShowMap] = useState<boolean>(false);
   const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false);
-  const showConfirmDeleteHandler = () => {
-    setShowConfirmModal(true);
-  };
 
   const confirmDeleteHandler = () => {
-    console.log('deleted')
+    console.log("deleted");
+    setShowConfirmModal(false)
   };
 
   return (
@@ -38,13 +36,17 @@ const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
 
       <Modal
         show={showConfirmModal}
-        onCancel={()=> setShowConfirmModal(false)}
+        onCancel={() => setShowConfirmModal(false)}
         header="Are you sure?"
         footerClass="place-item__modal-actions"
         footer={
           <>
-            <Button inverse>CANCEL</Button>
-            <Button danger>DELETE</Button>
+            <Button inverse onClick={() => setShowConfirmModal(false)}>
+              CANCEL
+            </Button>
+            <Button danger onClick={confirmDeleteHandler}>
+              DELETE
+            </Button>
           </>
         }
       >
@@ -64,8 +66,10 @@ const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
             <Button inverse onClick={() => setShowMap(true)}>
               view on map
             </Button>
-            <Button to={`/places/${placeItem.id}`}>edit</Button>
-            <Button danger>delete</Button>
+            <Button to={`/places/${placeItem.id}`}>EDIT</Button>
+            <Button danger onClick={() => setShowConfirmModal(true)}>
+              DELETE
+            </Button>
           </div>
         </Card>
       </li>
