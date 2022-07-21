@@ -1,10 +1,10 @@
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { placeItems } from "../../types";
-import { motion } from "framer-motion";
+import Map from "../../shared/UIElements/Map";
 import Card from "../../shared/UIElements/Card";
 import Modal from "../../shared/UIElements/Modals/Modal";
 import Button from "../../shared/form Elements/Button";
-import Map from "../../shared/UIElements/Map";
 
 const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
   const [showMap, setShowMap] = useState<boolean>(false);

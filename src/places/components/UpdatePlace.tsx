@@ -1,7 +1,8 @@
 import "../pages/placeForm.css";
+import { useParams } from "react-router-dom";
+import Card from "../../shared/UIElements/Card";
 import Input from "../../shared/form Elements/Input";
 import Button from "../../shared/form Elements/Button";
-import { useParams } from "react-router-dom";
 import { DUMMY_PLACES } from "../../users/pages/UserPlaces";
 import {
   VALIDATOR_REQUIRE,
@@ -16,11 +17,13 @@ const UpdatePlace = () => {
   if (!identifiedPlace) {
     return (
       <div className="center">
-        <h2>no identified place found</h2>
+        <Card>
+          <h2>no identified place found</h2>
+        </Card>
       </div>
     );
   }
-  const placeUpdateSubmitHandler = (event:React.FormEvent) => {
+  const placeUpdateSubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
   };
   return (
