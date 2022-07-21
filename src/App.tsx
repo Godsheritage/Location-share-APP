@@ -1,4 +1,5 @@
 import React from "react";
+import Auth from "./users/pages/Auth";
 import Users from "./users/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
 import UserPlaces from "./users/pages/UserPlaces";
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Users />} />
           <Route path="/places/new" element={<NewPlace />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/:userId/places" element={<UserPlaces />} />
           <Route path="/places/:placeId" element={<UpdatePlace />} />
         </Routes>

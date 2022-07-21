@@ -72,9 +72,9 @@ export interface inputPropTypes {
   label: string;
   element: string;
   id?: string;
-  errorText: string;
-  validators: any;
-  onInput: any;
+  errorText?: string;
+  validators?: any;
+  onInput?: any;
 }
 
 export interface initialFormState {
