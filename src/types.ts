@@ -105,3 +105,7 @@ export interface formActionTypes {
 export interface formReducerTypes {
   formReducer: (state: any, action: formActionTypes) => void;
 }
+
+export interface contextTypes {
+  
+}
