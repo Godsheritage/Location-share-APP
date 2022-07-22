@@ -47,9 +47,9 @@ const Input: React.FC<inputPropTypes> = ({
   const [inputState, dispatch] = useReducer(inputReducer, initialState);
 
   const { isValid } = initialState;
-  useEffect(() => {
-    onInput(id, initialState.value, isValid);
-  }, [id, initialState.value, isValid, onInput]);
+  // useEffect(() => {
+  //   onInput(id, initialState.value, isValid);
+  // }, [id, initialState.value, isValid, onInput]);
 
   //input onChange
   const changeHandler = (e: any) => {
