@@ -1,4 +1,5 @@
 import React from "react";
+import "./side-drawer.scss"
 import { AnimatePresence, motion } from "framer-motion";
 import ReactDOM from "react-dom";
 

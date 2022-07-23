@@ -1,3 +1,4 @@
+import './main-navigation.scss'
 import { useState } from "react";
 import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
