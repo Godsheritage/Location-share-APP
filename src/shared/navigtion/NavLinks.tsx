@@ -5,7 +5,7 @@ import { contextTypes } from "../../types";
 import AuthContext from "../context/AuthContext";
 
 const NavLinks: React.FC<any> = ({ onClick }) => {
-  const { isLoggedIn } = useContext(AuthContext) as contextTypes;
+  const { isLoggedIn, logout } = useContext(AuthContext) as contextTypes;
   return (
     <ul className="nav-links">
       <li onClick={onClick}>
@@ -24,6 +24,11 @@ const NavLinks: React.FC<any> = ({ onClick }) => {
       {!isLoggedIn && (
         <li onClick={onClick}>
           <NavLink to="/auth">Authenticate</NavLink>
+        </li>
+      )}
+      {isLoggedIn && (
+        <li onClick={() => logout()}>
+          <NavLink to="/">Log Out</NavLink>
         </li>
       )}
     </ul>

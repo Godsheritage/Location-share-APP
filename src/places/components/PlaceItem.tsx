@@ -1,18 +1,21 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { placeItems } from "../../types";
+import { contextTypes, placeItems } from "../../types";
 import Map from "../../shared/UIElements/Map";
 import Card from "../../shared/UIElements/Card";
 import Modal from "../../shared/UIElements/Modals/Modal";
 import Button from "../../shared/form Elements/Button";
+import AuthContext from "../../shared/context/AuthContext";
+import { useContext } from "react";
 
 const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
   const [showMap, setShowMap] = useState<boolean>(false);
   const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false);
+  const { isLoggedIn } = useContext(AuthContext) as contextTypes;
 
   const confirmDeleteHandler = () => {
     console.log("deleted");
-    setShowConfirmModal(false)
+    setShowConfirmModal(false);
   };
 
   return (
@@ -66,10 +69,14 @@ const PlaceItem: React.FC<placeItems> = ({ placeItem }) => {
             <Button inverse onClick={() => setShowMap(true)}>
               view on map
             </Button>
-            <Button to={`/places/${placeItem.id}`}>EDIT</Button>
-            <Button danger onClick={() => setShowConfirmModal(true)}>
-              DELETE
-            </Button>
+            {isLoggedIn && (
+              <>
+                <Button to={`/places/${placeItem.id}`}>EDIT</Button>
+                <Button danger onClick={() => setShowConfirmModal(true)}>
+                  DELETE
+                </Button>
+              </>
+            )}
           </div>
         </Card>
       </li>

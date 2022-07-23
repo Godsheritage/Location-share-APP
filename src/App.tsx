@@ -15,7 +15,7 @@ import { contextTypes } from "./types";
 const App: React.FC = () => {
   const { isLoggedIn } = useContext(AuthContext) as contextTypes;
   let routes;
-  console.log(isLoggedIn)
+  console.log(isLoggedIn);
 
   if (isLoggedIn) {
     routes = (
@@ -24,7 +24,7 @@ const App: React.FC = () => {
         <Route path="/places/new" element={<NewPlace />} />
         <Route path="/:userId/places" element={<UserPlaces />} />
         <Route path="/places/:placeId" element={<UpdatePlace />} />
-        <Navigate to="/" />
+        {/* <Navigate to="/" /> */}
       </Routes>
     );
   } else {
@@ -33,22 +33,23 @@ const App: React.FC = () => {
         <Route path="/" element={<Users />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/:userId/places" element={<UserPlaces />} />
-        <Navigate to="/auth" />
+        {/* <Navigate to="/auth" /> */}
       </Routes>
     );
   }
 
   return (
     <AuthContextProvider>
-      <MainNavigation />
       <Router>
+      <MainNavigation />
         <main>
-            {routes}
-            {/* <Route path="/" element={<Users />} />
-            <Route path="/places/new" element={<NewPlace />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/:userId/places" element={<UserPlaces />} />
-            <Route path="/places/:placeId" element={<UpdatePlace />} /> */}
+          {routes}
+
+          {/* <Route path="/" element={<Users />} />
+          <Route path="/places/new" element={<NewPlace />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/:userId/places" element={<UserPlaces />} />
+          <Route path="/places/:placeId" element={<UpdatePlace />} /> */}
         </main>
       </Router>
     </AuthContextProvider>
