@@ -1,10 +1,10 @@
 import { createContext, useState } from "react";
 import { contextTypes } from "../../types";
 
-const AuthContext = createContext<contextTypes | null>(null);
+const AuthContext = createContext<contextTypes | any>({isLoggedIn:true});
 
 export const AuthContextProvider: React.FC<any> = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const login = () => {
     setIsLoggedIn(true);
