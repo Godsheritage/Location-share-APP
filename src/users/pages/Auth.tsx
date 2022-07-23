@@ -1,13 +1,19 @@
 import "./auth.css";
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
+import AuthContext from "../../shared/context/AuthContext";
 import Card from "../../shared/UIElements/Card";
 import Input from "../../shared/form Elements/Input";
 import Button from "../../shared/form Elements/Button";
+import { contextTypes } from "../../types";
 
 const Auth = () => {
+  const {login} = useContext(AuthContext) as contextTypes
+
   const authSubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
+    login()
   };
+
 
   const [isLoginMode, setIsLoginMode] = useState<boolean>(true);
   return (
