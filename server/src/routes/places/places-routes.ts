@@ -3,7 +3,7 @@ import { httpFetchPlaces } from './places-controllers'
 
 const placesRoutes = express.Router()
 
-placesRoutes.get('/pid', httpFetchPlaces)
+placesRoutes.get('/:pid', httpFetchPlaces)
 
 
 export default placesRoutes
