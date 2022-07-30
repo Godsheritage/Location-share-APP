@@ -6,10 +6,18 @@ import {
 
 export const httpFetchPlacesByPlaceId: RequestHandler = (req, res) => {
   const placeId: string = req.params.pid;
-  return res.status(200).json(getPlacesByPlaceId(placeId));
+  const place = getPlacesByPlaceId(placeId)
+  if(!place){
+    return res.status(404).json({message:"could not find place"})
+  }
+  return res.status(200).json(place);
 };
 
 export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
-  const userId = req.params.id;
-  res.send(200).json(getPlacesByUserId(userId));
+  const userId = req.params.uid;
+  const place = getPlacesByPlaceId(userId)
+  if(!place){
+    return res.status(404).json({message:"could not find place"})
+  }
+  return res.status(200).json(place);
 };
