@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPlaces = exports.DUMMY_PLACES = void 0;
+exports.getPlacesByUserId = exports.getPlacesByPlaceId = exports.DUMMY_PLACES = void 0;
 exports.DUMMY_PLACES = [
     {
         id: "p1",
@@ -21,8 +21,13 @@ exports.DUMMY_PLACES = [
         creator: "u2",
     },
 ];
-const getPlaces = (pid) => {
+const getPlacesByPlaceId = (pid) => {
     const foundPlace = exports.DUMMY_PLACES.find((place) => place.id === pid);
     return foundPlace;
 };
-exports.getPlaces = getPlaces;
+exports.getPlacesByPlaceId = getPlacesByPlaceId;
+const getPlacesByUserId = (uid) => {
+    const foundPlace = exports.DUMMY_PLACES.find((place) => place.creator === uid);
+    return foundPlace;
+};
+exports.getPlacesByUserId = getPlacesByUserId;

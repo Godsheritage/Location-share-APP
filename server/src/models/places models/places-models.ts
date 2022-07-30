@@ -22,7 +22,12 @@ export const DUMMY_PLACES: placeTypes["items"] = [
   },
 ];
 
-export const getPlaces = (pid: string) => {
+export const getPlacesByPlaceId = (pid: string) => {
   const foundPlace = DUMMY_PLACES.find((place) => place.id === pid);
+  return foundPlace;
+};
+
+export const getPlacesByUserId = (uid: string) => {
+  const foundPlace = DUMMY_PLACES.find((place) => place.creator === uid);
   return foundPlace;
 };

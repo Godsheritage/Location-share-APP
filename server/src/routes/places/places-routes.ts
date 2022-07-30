@@ -1,9 +1,9 @@
 import express from 'express'
-import { httpFetchPlaces } from './places-controllers'
+import { httpFetchPlacesByPlaceId } from './places-controllers'
 
 const placesRoutes = express.Router()
 
-placesRoutes.get('/:pid', httpFetchPlaces)
+placesRoutes.get('/:pid', httpFetchPlacesByPlaceId)
 placesRoutes.get('/user/:uid')
 
 export default placesRoutes
