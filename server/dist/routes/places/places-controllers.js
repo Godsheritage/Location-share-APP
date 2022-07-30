@@ -7,3 +7,4 @@ const httpFetchPlaces = (req, res) => {
     return res.status(200).json((0, places_models_1.getPlaces)(placeId));
 };
 exports.httpFetchPlaces = httpFetchPlaces;
+// export const httpFetchPlacesByUserID
