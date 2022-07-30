@@ -1,0 +1,23 @@
+{
+  "name": "locator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm start --prefix server",
+    "CLIENT_BUILD": "npm run build --prefix client",
+    "deploy": "npm run CLIENT_BUILD && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Godsheritage/Location-share-APP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Godsheritage/Location-share-APP/issues"
+  },
+  "homepage": "https://github.com/Godsheritage/Location-share-APP#readme"
+}
