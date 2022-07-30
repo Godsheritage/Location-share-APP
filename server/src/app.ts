@@ -1,6 +1,6 @@
 import express from "express";
-import placesRoutes from "./routes/places-routes";
-import userRoutes from "./routes/user-routes";
+import placesRoutes from "./routes/places/places-routes";
+import userRoutes from "./routes/users/user-routes";
 const app = express();
 
 app.use('/', placesRoutes)
