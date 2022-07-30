@@ -2,8 +2,10 @@ import React from "react";
 import './navlinks.scss'
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { contextTypes } from "../../types";
-import AuthContext from "../context/AuthContext";
+import AuthContext from "../../context/AuthContext";
+import { contextTypes } from "../../../types";
+// import { contextTypes } from "../../types";
+// import AuthContext from "../context/AuthContext";
 
 const NavLinks: React.FC<any> = ({ onClick }) => {
   const { isLoggedIn, logout } = useContext(AuthContext) as contextTypes;

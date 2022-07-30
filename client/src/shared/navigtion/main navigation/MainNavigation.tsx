@@ -1,10 +1,14 @@
 import './main-navigation.scss'
 import { useState } from "react";
-import NavLinks from "./NavLinks";
-import SideDrawer from "./SideDrawer";
-import MainHeader from "./MainHeader";
+import NavLinks from '../navlinks/NavLinks';
+// import NavLinks from "./NavLinks";
+import SideDrawer from '../side drawer/SideDrawer';
+import MainHeader from '../main header/MainHeader';
+// import SideDrawer from "./SideDrawer";
+// import MainHeader from "./MainHeader";
+import Backdrop from '../../UIElements/Backdrop';
 import { Link } from "react-router-dom";
-import Backdrop from "../UIElements/Backdrop";
+// import Backdrop from "../UIElements/Backdrop";
 import { AnimatePresence, motion } from "framer-motion";
 
 const MainNavigation: React.FC = () => {

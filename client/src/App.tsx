@@ -8,7 +8,8 @@ import { Navigate } from "react-router-dom";
 import AuthContext from "./shared/context/AuthContext";
 import { AuthContextProvider } from "./shared/context/AuthContext";
 import UpdatePlace from "./places/components/UpdatePlace";
-import MainNavigation from "./shared/navigtion/MainNavigation";
+import MainNavigation from "./shared/navigtion/main navigation/MainNavigation";
+// import MainNavigation from "./shared/navigtion/MainNavigation";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { contextTypes } from "./types";
 

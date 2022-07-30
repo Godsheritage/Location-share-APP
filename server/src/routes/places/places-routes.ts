@@ -2,7 +2,7 @@ import express from 'express'
 
 const placesRoutes = express.Router()
 
-placesRoutes.get('/')
+placesRoutes.get('/pid')
 
 
 export default placesRoutes
