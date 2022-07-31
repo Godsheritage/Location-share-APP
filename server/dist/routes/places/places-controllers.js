@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.httpCreatePlace = exports.httpFetchPlacesByUserID = exports.httpFetchPlacesByPlaceId = void 0;
+exports.httpDeletePlace = exports.httpEditPlace = exports.httpCreatePlace = exports.httpFetchPlacesByUserID = exports.httpFetchPlacesByPlaceId = void 0;
 const places_models_1 = require("../../models/places models/places-models");
 //FETCH THE PLACES BY ID
 const httpFetchPlacesByPlaceId = (req, res) => {
@@ -26,3 +26,14 @@ const httpCreatePlace = (req, res) => {
     res.status(201).json({ message: "created" });
 };
 exports.httpCreatePlace = httpCreatePlace;
+const httpEditPlace = (req, res) => {
+    const placeId = req.params.pid;
+    const placeBody = req.params.body;
+    res.status(200).json({ message: "edited" });
+};
+exports.httpEditPlace = httpEditPlace;
+const httpDeletePlace = (req, res) => {
+    const placeId = req.params.pid;
+    res.status(200).json({ message: "deleted" });
+};
+exports.httpDeletePlace = httpDeletePlace;

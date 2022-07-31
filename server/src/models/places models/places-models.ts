@@ -31,4 +31,10 @@ export const getPlacesByUserId = (uid: string) => {
   const foundPlace = DUMMY_PLACES.find((place) => place.creator === uid);
   return foundPlace;
 };
+
+//edit places by user id
+export const editPlacesByPlaceId = (pid: string) => {
+  const foundPlace = DUMMY_PLACES.find((place) => place.creator === pid);
+  return foundPlace;
+};
 //https://example.com/comments/1

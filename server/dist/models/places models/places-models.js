@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPlacesByUserId = exports.getPlacesByPlaceId = exports.DUMMY_PLACES = void 0;
+exports.editPlacesByPlaceId = exports.getPlacesByUserId = exports.getPlacesByPlaceId = exports.DUMMY_PLACES = void 0;
 exports.DUMMY_PLACES = [
     {
         id: "p1",
@@ -31,4 +31,10 @@ const getPlacesByUserId = (uid) => {
     return foundPlace;
 };
 exports.getPlacesByUserId = getPlacesByUserId;
+//edit places by user id
+const editPlacesByPlaceId = (pid) => {
+    const foundPlace = exports.DUMMY_PLACES.find((place) => place.creator === pid);
+    return foundPlace;
+};
+exports.editPlacesByPlaceId = editPlacesByPlaceId;
 //https://example.com/comments/1

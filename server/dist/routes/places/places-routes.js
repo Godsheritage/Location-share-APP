@@ -9,4 +9,6 @@ const placesRoutes = express_1.default.Router();
 placesRoutes.get('/user/:uid', places_controllers_1.httpFetchPlacesByUserID);
 placesRoutes.get('/:pid', places_controllers_1.httpFetchPlacesByPlaceId);
 placesRoutes.post('/', places_controllers_1.httpCreatePlace);
+placesRoutes.patch("/:pid", places_controllers_1.httpEditPlace);
+placesRoutes.delete("/:pid", places_controllers_1.httpDeletePlace);
 exports.default = placesRoutes;
