@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deletePlacesByPlaceId = exports.editPlacesByPlaceId = exports.getPlacesByUserId = exports.getPlacesByPlaceId = exports.DUMMY_PLACES = void 0;
+exports.deletePlaces = exports.editPlaces = exports.getPlacesByUserId = exports.getPlacesByPlaceId = exports.createPlaces = exports.DUMMY_PLACES = void 0;
 exports.DUMMY_PLACES = [
     {
         id: "p1",
@@ -21,6 +21,10 @@ exports.DUMMY_PLACES = [
         creator: "u2",
     },
 ];
+const createPlaces = (place) => {
+    exports.DUMMY_PLACES.push(place);
+};
+exports.createPlaces = createPlaces;
 const getPlacesByPlaceId = (pid) => {
     const foundPlace = exports.DUMMY_PLACES.find((place) => place.id === pid);
     return foundPlace;
@@ -32,15 +36,17 @@ const getPlacesByUserId = (uid) => {
 };
 exports.getPlacesByUserId = getPlacesByUserId;
 //edit places by user id
-const editPlacesByPlaceId = (pid) => {
-    const foundPlace = exports.DUMMY_PLACES.find((place) => place.creator === pid);
+const editPlaces = (pid, placeBody) => {
+    const foundPlace = exports.DUMMY_PLACES.find(place => place.id === pid);
+    const { title, description } = placeBody;
+    foundPlace.title = title;
+    foundPlace.description = description;
     return foundPlace;
 };
-exports.editPlacesByPlaceId = editPlacesByPlaceId;
+exports.editPlaces = editPlaces;
 //delete places by user id
-const deletePlacesByPlaceId = (pid) => {
+const deletePlaces = (pid) => {
     const places = exports.DUMMY_PLACES.filter((place) => place.id !== pid);
     return places;
 };
-exports.deletePlacesByPlaceId = deletePlacesByPlaceId;
-//https://example.com/comments/1
+exports.deletePlaces = deletePlaces;

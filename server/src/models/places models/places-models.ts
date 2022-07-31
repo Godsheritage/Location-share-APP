@@ -1,5 +1,5 @@
 import { placeTypes } from "./../../types";
-export const DUMMY_PLACES: placeTypes["items"] = [
+export const DUMMY_PLACES: placeTypes["items"][] = [
   {
     id: "p1",
     title: "Empire state building",
@@ -22,6 +22,11 @@ export const DUMMY_PLACES: placeTypes["items"] = [
   },
 ];
 
+export const createPlaces = (place:any) => {
+  DUMMY_PLACES.push(place)
+};
+
+
 export const getPlacesByPlaceId = (pid: string) => {
   const foundPlace = DUMMY_PLACES.find((place) => place.id === pid);
   return foundPlace;
@@ -33,15 +38,17 @@ export const getPlacesByUserId = (uid: string) => {
 };
 
 //edit places by user id
-export const editPlacesByPlaceId = (pid: string) => {
-  const foundPlace = DUMMY_PLACES.find((place) => place.creator === pid);
+export const editPlaces = (pid: string, placeBody:any) => {
+  const foundPlace = DUMMY_PLACES.find(place => place.id === pid);
+  const {title, description} = placeBody
+  foundPlace!.title = title 
+  foundPlace!.description = description
   return foundPlace;
 };
 
 //delete places by user id
-export const deletePlacesByPlaceId = (pid: string) => {
+export const deletePlaces = (pid: string) => {
   const places = DUMMY_PLACES.filter((place) => place.id !== pid);
   return places;
 };
 
-//https://example.com/comments/1

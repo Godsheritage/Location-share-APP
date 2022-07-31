@@ -7,6 +7,6 @@ export interface placeTypes {
       loation: { lat: number; lng: number };
       title: string;
       creator: string;
-    }[];
+    };
   }
   

@@ -1,8 +1,10 @@
+import { editPlaces } from './../../models/places models/places-models';
 import { RequestHandler } from "express";
 import {
-  deletePlacesByPlaceId,
+  deletePlaces,
   getPlacesByPlaceId,
   getPlacesByUserId,
+  createPlaces
 } from "../../models/places models/places-models";
 
 //FETCH THE PLACES BY ID
@@ -25,17 +27,23 @@ export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
   return res.status(200).json(place);
 };
 
+
+
 export const httpCreatePlace: RequestHandler = (req, res) => {
+  createPlaces(req.body)
   return res.status(201).json({ message: "created" });
 };
 
+
+
 export const httpEditPlace: RequestHandler = (req, res) => {
   const placeId = req.params.pid;
-  const placeBody = req.params.body;
+  const placeBody = req.body;
+  editPlaces(placeId, placeBody)
   return res.status(200).json({ message: "edited" });
 };
 
 export const httpDeletePlace: RequestHandler = (req, res) => {
   const placeId = req.params.pid;
-  return res.status(200).json(deletePlacesByPlaceId(placeId));
+  return res.status(200).json(deletePlaces(placeId));
 };
