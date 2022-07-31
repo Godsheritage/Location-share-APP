@@ -23,17 +23,17 @@ const httpFetchPlacesByUserID = (req, res) => {
 };
 exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
 const httpCreatePlace = (req, res) => {
-    res.status(201).json({ message: "created" });
+    return res.status(201).json({ message: "created" });
 };
 exports.httpCreatePlace = httpCreatePlace;
 const httpEditPlace = (req, res) => {
     const placeId = req.params.pid;
     const placeBody = req.params.body;
-    res.status(200).json({ message: "edited" });
+    return res.status(200).json({ message: "edited" });
 };
 exports.httpEditPlace = httpEditPlace;
 const httpDeletePlace = (req, res) => {
     const placeId = req.params.pid;
-    res.status(200).json({ message: "deleted" });
+    return res.status(200).json((0, places_models_1.deletePlacesByPlaceId)(placeId));
 };
 exports.httpDeletePlace = httpDeletePlace;

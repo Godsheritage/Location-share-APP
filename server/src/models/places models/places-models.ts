@@ -37,4 +37,11 @@ export const editPlacesByPlaceId = (pid: string) => {
   const foundPlace = DUMMY_PLACES.find((place) => place.creator === pid);
   return foundPlace;
 };
+
+//delete places by user id
+export const deletePlacesByPlaceId = (pid: string) => {
+  const places = DUMMY_PLACES.filter((place) => place.id !== pid);
+  return places;
+};
+
 //https://example.com/comments/1
