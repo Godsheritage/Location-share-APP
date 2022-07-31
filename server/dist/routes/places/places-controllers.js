@@ -30,8 +30,8 @@ const httpCreatePlace = (req, res) => {
 exports.httpCreatePlace = httpCreatePlace;
 const httpEditPlace = (req, res) => {
     const placeId = req.params.pid;
-    const placeBody = req.body;
-    (0, places_models_1.editPlaces)(placeId, placeBody);
+    const { title, description } = req.body;
+    (0, places_models_1.editPlaces)(placeId, title, description);
     return res.status(200).json({ message: "edited" });
 };
 exports.httpEditPlace = httpEditPlace;

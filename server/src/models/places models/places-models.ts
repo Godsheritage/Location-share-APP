@@ -1,5 +1,5 @@
 import { placeTypes } from "./../../types";
-export const DUMMY_PLACES: placeTypes["items"][] = [
+export const DUMMY_PLACES: any = [
   {
     id: "p1",
     title: "Empire state building",
@@ -22,33 +22,42 @@ export const DUMMY_PLACES: placeTypes["items"][] = [
   },
 ];
 
-export const createPlaces = (place:any) => {
-  DUMMY_PLACES.push(place)
+export const createPlaces = (place: placeTypes["items"]) => {
+  DUMMY_PLACES.push(place);
 };
 
-
 export const getPlacesByPlaceId = (pid: string) => {
-  const foundPlace = DUMMY_PLACES.find((place) => place.id === pid);
+  const foundPlace = DUMMY_PLACES.find(
+    (place: placeTypes["items"]) => place.id === pid
+  );
   return foundPlace;
 };
 
 export const getPlacesByUserId = (uid: string) => {
-  const foundPlace = DUMMY_PLACES.find((place) => place.creator === uid);
+  const foundPlace = DUMMY_PLACES.find(
+    (place: placeTypes["items"]) => place.creator === uid
+  );
   return foundPlace;
 };
 
 //edit places by user id
-export const editPlaces = (pid: string, placeBody:any) => {
-  const foundPlace = DUMMY_PLACES.find(place => place.id === pid);
-  const {title, description} = placeBody
-  foundPlace!.title = title 
-  foundPlace!.description = description
+export const editPlaces = (pid: string, title: string, description: string) => {
+  const foundPlace = {
+    ...DUMMY_PLACES.find((place: placeTypes["items"]) => place.id === pid),
+  };
+  const foundIndex = DUMMY_PLACES.findIndex(
+    (place: placeTypes["items"]) => place.id === pid
+  );
+  foundPlace.title = title;
+  foundPlace.description = description;
+  DUMMY_PLACES[foundIndex] = foundPlace;
   return foundPlace;
 };
 
 //delete places by user id
 export const deletePlaces = (pid: string) => {
-  const places = DUMMY_PLACES.filter((place) => place.id !== pid);
+  const places = DUMMY_PLACES.filter(
+    (place: placeTypes["items"]) => place.id !== pid
+  );
   return places;
 };
-

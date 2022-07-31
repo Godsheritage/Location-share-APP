@@ -38,10 +38,11 @@ export const httpCreatePlace: RequestHandler = (req, res) => {
 
 export const httpEditPlace: RequestHandler = (req, res) => {
   const placeId = req.params.pid;
-  const placeBody = req.body;
-  editPlaces(placeId, placeBody)
+  const {title, description} = req.body;
+  editPlaces(placeId, title, description)
   return res.status(200).json({ message: "edited" });
 };
+
 
 export const httpDeletePlace: RequestHandler = (req, res) => {
   const placeId = req.params.pid;

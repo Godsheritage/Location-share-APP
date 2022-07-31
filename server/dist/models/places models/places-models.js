@@ -36,11 +36,12 @@ const getPlacesByUserId = (uid) => {
 };
 exports.getPlacesByUserId = getPlacesByUserId;
 //edit places by user id
-const editPlaces = (pid, placeBody) => {
-    const foundPlace = exports.DUMMY_PLACES.find(place => place.id === pid);
-    const { title, description } = placeBody;
+const editPlaces = (pid, title, description) => {
+    const foundPlace = Object.assign({}, exports.DUMMY_PLACES.find((place) => place.id === pid));
+    const foundIndex = exports.DUMMY_PLACES.findIndex((place) => place.id === pid);
     foundPlace.title = title;
     foundPlace.description = description;
+    exports.DUMMY_PLACES[foundIndex] = foundPlace;
     return foundPlace;
 };
 exports.editPlaces = editPlaces;
