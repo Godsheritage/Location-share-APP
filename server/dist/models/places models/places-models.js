@@ -31,3 +31,4 @@ const getPlacesByUserId = (uid) => {
     return foundPlace;
 };
 exports.getPlacesByUserId = getPlacesByUserId;
+//https://example.com/comments/1

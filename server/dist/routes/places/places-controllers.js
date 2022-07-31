@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.httpFetchPlacesByUserID = exports.httpFetchPlacesByPlaceId = void 0;
+exports.httpCreatePlace = exports.httpFetchPlacesByUserID = exports.httpFetchPlacesByPlaceId = void 0;
 const places_models_1 = require("../../models/places models/places-models");
 //FETCH THE PLACES BY ID
 const httpFetchPlacesByPlaceId = (req, res) => {
@@ -22,3 +22,7 @@ const httpFetchPlacesByUserID = (req, res) => {
     return res.status(200).json(place);
 };
 exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
+const httpCreatePlace = (req, res) => {
+    res.status(200).json();
+};
+exports.httpCreatePlace = httpCreatePlace;
