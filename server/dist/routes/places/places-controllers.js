@@ -23,6 +23,6 @@ const httpFetchPlacesByUserID = (req, res) => {
 };
 exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
 const httpCreatePlace = (req, res) => {
-    res.status(200).json();
+    res.status(201).json({ message: "created" });
 };
 exports.httpCreatePlace = httpCreatePlace;

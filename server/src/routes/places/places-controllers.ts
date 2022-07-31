@@ -25,5 +25,5 @@ export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
 };
 
 export const httpCreatePlace: RequestHandler = (req, res) => {
-  res.status(200).json();
+  res.status(201).json({ message: "created" });
 };

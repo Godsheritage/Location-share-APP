@@ -10,4 +10,5 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use('/api/places', places_routes_1.default);
 app.use('/', user_routes_1.default);
+app.use();
 exports.default = app;
