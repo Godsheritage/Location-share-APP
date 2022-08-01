@@ -7,7 +7,11 @@ const httpGetUsers = (req, res) => {
 };
 exports.httpGetUsers = httpGetUsers;
 const httpLoginUsers = (req, res) => {
-    return res.status(200).json();
+    const { email, password } = req.body;
+    if (!email || !password) {
+        return res.status(422).json({ message: "mising credentials" });
+    }
+    return res.status(200).json((0, users_models_1.signInUsers)(email, password));
 };
 exports.httpLoginUsers = httpLoginUsers;
 const httpSignupUsers = (req, res) => {
@@ -15,6 +19,6 @@ const httpSignupUsers = (req, res) => {
     if (!userName || !email || !password) {
         return res.status(400).json({ message: "mising credentials" });
     }
-    return res.status(200).json();
+    return res.status(201).json((0, users_models_1.signUpUsers)(userName, email, password));
 };
 exports.httpSignupUsers = httpSignupUsers;
