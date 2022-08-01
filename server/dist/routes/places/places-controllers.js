@@ -17,7 +17,7 @@ exports.httpFetchPlacesByPlaceId = httpFetchPlacesByPlaceId;
 const httpFetchPlacesByUserID = (req, res) => {
     const userId = req.params.uid;
     const place = (0, places_models_2.getPlacesByUserId)(userId);
-    if (!place) {
+    if (!place || place.length === 0) {
         return res.status(404).json({ message: "could not find place" });
     }
     return res.status(200).json(place);

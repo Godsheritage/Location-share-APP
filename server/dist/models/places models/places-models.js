@@ -30,8 +30,9 @@ const getPlacesByPlaceId = (pid) => {
     return foundPlace;
 };
 exports.getPlacesByPlaceId = getPlacesByPlaceId;
+//to geta places by user ID
 const getPlacesByUserId = (uid) => {
-    const foundPlace = exports.DUMMY_PLACES.find((place) => place.creator === uid);
+    const foundPlace = exports.DUMMY_PLACES.filter((place) => place.creator === uid);
     return foundPlace;
 };
 exports.getPlacesByUserId = getPlacesByUserId;
@@ -47,7 +48,7 @@ const editPlaces = (pid, title, description) => {
 exports.editPlaces = editPlaces;
 //delete places by user id
 const deletePlaces = (pid) => {
-    const places = exports.DUMMY_PLACES.filter((place) => place.id !== pid);
-    return places;
+    exports.DUMMY_PLACES = exports.DUMMY_PLACES.filter((place) => place.id !== pid);
+    return exports.DUMMY_PLACES;
 };
 exports.deletePlaces = deletePlaces;
