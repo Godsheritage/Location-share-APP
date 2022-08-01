@@ -22,9 +22,11 @@ export const DUMMY_PLACES: any = [
   },
 ];
 
+
 export const createPlaces = (place: placeTypes["items"]) => {
   DUMMY_PLACES.push(place);
 };
+
 
 export const getPlacesByPlaceId = (pid: string) => {
   const foundPlace = DUMMY_PLACES.find(
@@ -32,6 +34,7 @@ export const getPlacesByPlaceId = (pid: string) => {
   );
   return foundPlace;
 };
+
 
 export const getPlacesByUserId = (uid: string) => {
   const foundPlace = DUMMY_PLACES.find(
