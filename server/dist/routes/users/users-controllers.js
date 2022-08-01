@@ -11,6 +11,10 @@ const httpLoginUsers = (req, res) => {
 };
 exports.httpLoginUsers = httpLoginUsers;
 const httpSignupUsers = (req, res) => {
+    const { userName, email, password } = req.body;
+    if (!userName || !email || !password) {
+        return res.status(400).json({ message: "mising credentials" });
+    }
     return res.status(200).json();
 };
 exports.httpSignupUsers = httpSignupUsers;
