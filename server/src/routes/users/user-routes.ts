@@ -1,10 +1,10 @@
 import express from 'express'
-import { httpGetUsers } from './users-controllers'
+import { httpGetUsers, httpLoginUsers, httpSignupUsers } from './users-controllers'
 
 const userRoutes = express.Router()
 
 userRoutes.get('/', httpGetUsers)
-userRoutes.post('/login', httpGetUsers)
-userRoutes.post('/signup', httpGetUsers)
+userRoutes.post('/login', httpLoginUsers)
+userRoutes.post('/signup', httpSignupUsers)
 
 export default userRoutes
