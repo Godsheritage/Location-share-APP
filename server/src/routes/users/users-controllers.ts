@@ -4,6 +4,7 @@ import {
   signInUsers,
   signUpUsers,
 } from "./../../models/User Models/users-models";
+import { validationResult } from "express-validator";
 
 export const httpGetUsers: RequestHandler = (req, res) => {
   return res.status(200).json(getAllUsers());
@@ -12,6 +13,8 @@ export const httpGetUsers: RequestHandler = (req, res) => {
 
 export const httpLoginUsers: RequestHandler = (req, res) => {
   const { email, password } = req.body;
+  const errors = validationResult(req)
+  console
   if (!email || !password) {
     return res.status(422).json({ message: "mising credentials" });
   }
