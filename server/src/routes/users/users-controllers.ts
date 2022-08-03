@@ -12,12 +12,14 @@ export const httpGetUsers: RequestHandler = (req, res) => {
 
 
 export const httpLoginUsers: RequestHandler = (req, res) => {
-  const { email, password } = req.body;
   const errors = validationResult(req)
-  console
-  if (!email || !password) {
-    return res.status(422).json({ message: "mising credentials" });
+  if(!errors.isEmpty()){
+    return res.status(422).json({errors:errors.array()});
   }
+  const { email, password } = req.body;
+  // if (!email || !password) {
+  //   return res.status(422).json({ message: "mising credentials" });
+  // }
   return res.status(200).json(signInUsers(email, password));
 };
 

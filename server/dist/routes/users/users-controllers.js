@@ -8,12 +8,14 @@ const httpGetUsers = (req, res) => {
 };
 exports.httpGetUsers = httpGetUsers;
 const httpLoginUsers = (req, res) => {
-    const { email, password } = req.body;
     const errors = (0, express_validator_1.validationResult)(req);
-    console;
-    if (!email || !password) {
-        return res.status(422).json({ message: "mising credentials" });
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
     }
+    const { email, password } = req.body;
+    // if (!email || !password) {
+    //   return res.status(422).json({ message: "mising credentials" });
+    // }
     return res.status(200).json((0, users_models_1.signInUsers)(email, password));
 };
 exports.httpLoginUsers = httpLoginUsers;
