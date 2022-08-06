@@ -7,8 +7,10 @@ import {
 import { check } from "express-validator";
 
 const userRoutes = express.Router();
-
+//get all users routes
 userRoutes.get("/", httpGetUsers);
+
+
 userRoutes.post(
   "/login",
   [check("email").isEmail(), check("password").isLength({ min: 8 })],
