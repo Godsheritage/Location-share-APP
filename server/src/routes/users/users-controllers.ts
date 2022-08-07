@@ -12,7 +12,7 @@ export const httpGetUsers: RequestHandler = (req, res) => {
 
 
 export const httpLoginUsers: RequestHandler = (req, res) => {
-  const errors = validationResult(req.body)
+  const errors = validationResult(req)
   if(!errors.isEmpty()){
     return res.status(422).json({errors:errors.array()});
   }
@@ -21,10 +21,12 @@ export const httpLoginUsers: RequestHandler = (req, res) => {
 };
 
 
+//controller to sign up user
 export const httpSignupUsers: RequestHandler = (req, res) => {
-  const { userName, email, password } = req.body;
-  if (!userName || !email || !password) {
-    return res.status(400).json({ message: "mising credentials" });
+  const errors = validationResult(req)
+  if(!errors.isEmpty()){
+    return res.status(422).json({errors:errors.array()});
   }
-  return res.status(201).json(signUpUsers(userName, email, password));
+  const { name, email, password } = req.body;
+  return res.status(201).json(signUpUsers(name, email, password));
 };

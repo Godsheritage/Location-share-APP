@@ -12,5 +12,9 @@ userRoutes.get("/", users_controllers_1.httpGetUsers);
 //to login
 userRoutes.post("/login", [(0, express_validator_1.check)("email").isEmail(), (0, express_validator_1.check)("password").isLength({ min: 8 })], users_controllers_1.httpLoginUsers);
 //to add a new user
-userRoutes.post("/signup", [(0, express_validator_1.check)("email").isEmail(), (0, express_validator_1.check)("password").isLength({ min: 8 })], users_controllers_1.httpSignupUsers);
+userRoutes.post("/signup", [
+    (0, express_validator_1.check)("email").isEmail(),
+    (0, express_validator_1.check)("name").not().isEmpty(),
+    (0, express_validator_1.check)("password").isLength({ min: 8 }),
+], users_controllers_1.httpSignupUsers);
 exports.default = userRoutes;

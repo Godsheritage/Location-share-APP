@@ -21,7 +21,11 @@ userRoutes.post(
 //to add a new user
 userRoutes.post(
   "/signup",
-  [check("email").isEmail(), check("password").isLength({ min: 8 })],
+  [
+    check("email").isEmail(),
+    check("name").not().isEmpty(),
+    check("password").isLength({ min: 8 }),
+  ],
   httpSignupUsers
 );
 

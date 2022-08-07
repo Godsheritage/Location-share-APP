@@ -15,7 +15,6 @@ exports.getAllUsers = getAllUsers;
 const signInUsers = (email, password) => {
     const foundUser = users.find((user) => user.email === email);
     if (!foundUser) {
-        console.log(email);
         return { message: "user not found" };
     }
     else if (foundUser.password !== password) {
@@ -26,9 +25,9 @@ const signInUsers = (email, password) => {
     }
 };
 exports.signInUsers = signInUsers;
-const signUpUsers = (userName, email, password) => {
+const signUpUsers = (name, email, password) => {
     const newUser = {
-        userName,
+        name,
         email,
         password
     };
