@@ -15,6 +15,7 @@ export const getAllUsers = () => {
 export const signInUsers = (email:string, password:string) => {
     const foundUser = users.find((user:any) => user.email === email)
     if(!foundUser){
+        console.log(email)
         return {message:"user not found"}
     } 
     else if(foundUser.password !== password ){

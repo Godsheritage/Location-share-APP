@@ -8,7 +8,7 @@ const httpGetUsers = (req, res) => {
 };
 exports.httpGetUsers = httpGetUsers;
 const httpLoginUsers = (req, res) => {
-    const errors = (0, express_validator_1.validationResult)(req);
+    const errors = (0, express_validator_1.validationResult)(req.body);
     if (!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.array() });
     }

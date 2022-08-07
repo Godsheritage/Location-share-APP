@@ -12,7 +12,7 @@ export const httpGetUsers: RequestHandler = (req, res) => {
 
 
 export const httpLoginUsers: RequestHandler = (req, res) => {
-  const errors = validationResult(req)
+  const errors = validationResult(req.body)
   if(!errors.isEmpty()){
     return res.status(422).json({errors:errors.array()});
   }
