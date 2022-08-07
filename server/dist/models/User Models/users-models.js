@@ -5,7 +5,7 @@ const users = [
     {
         name: "Godsheritage Adeoye",
         email: "adeoyegodsheritage@gmail.com",
-        password: "test"
+        password: "test12345"
     }
 ];
 const getAllUsers = () => {

@@ -3,13 +3,14 @@ const users:any = [
     {
         name:"Godsheritage Adeoye",
         email:"adeoyegodsheritage@gmail.com",
-        password:"test"
+        password:"test12345"
     }
 ];
 
 export const getAllUsers = () => {
   return users;
 };
+
 
 export const signInUsers = (email:string, password:string) => {
     const foundUser = users.find((user:any) => user.email === email)
@@ -23,6 +24,7 @@ export const signInUsers = (email:string, password:string) => {
         return {message:"logged in", foundUser}
     }  
 }
+
 
 export const signUpUsers = (userName:string, email:string, password:string) => {
     const newUser = {

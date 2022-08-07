@@ -11,14 +11,16 @@ const userRoutes = express.Router();
 //get all users routes
 userRoutes.get("/", httpGetUsers);
 
-//add a new user route
+
+//to login
 userRoutes.post(
   "/login",
   [check("email").isEmail(), check("password").isLength({ min: 8 })],
   httpLoginUsers
 );
 
-//to post a new user 
+
+//to add a new user 
 userRoutes.post("/signup", httpSignupUsers);
 
 export default userRoutes;
