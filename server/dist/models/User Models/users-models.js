@@ -12,6 +12,7 @@ const getAllUsers = () => {
     return users;
 };
 exports.getAllUsers = getAllUsers;
+//MODEL TO SIGN IN USERS
 const signInUsers = (email, password) => {
     const foundUser = users.find((user) => user.email === email);
     if (!foundUser) {
@@ -25,6 +26,7 @@ const signInUsers = (email, password) => {
     }
 };
 exports.signInUsers = signInUsers;
+//MODEL TO SIGN UP USERS
 const signUpUsers = (name, email, password) => {
     const newUser = {
         name,
@@ -32,6 +34,6 @@ const signUpUsers = (name, email, password) => {
         password
     };
     users.push(newUser);
-    return newUser;
+    return { user: newUser };
 };
 exports.signUpUsers = signUpUsers;

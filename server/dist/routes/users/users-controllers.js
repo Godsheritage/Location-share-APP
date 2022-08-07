@@ -7,6 +7,7 @@ const httpGetUsers = (req, res) => {
     return res.status(200).json((0, users_models_1.getAllUsers)());
 };
 exports.httpGetUsers = httpGetUsers;
+//controller to sign in users
 const httpLoginUsers = (req, res) => {
     const errors = (0, express_validator_1.validationResult)(req);
     if (!errors.isEmpty()) {

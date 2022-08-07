@@ -12,6 +12,7 @@ export const getAllUsers = () => {
 };
 
 
+//MODEL TO SIGN IN USERS
 export const signInUsers = (email:string, password:string) => {
     const foundUser = users.find((user:any) => user.email === email)
     if(!foundUser){
@@ -25,7 +26,7 @@ export const signInUsers = (email:string, password:string) => {
     }  
 }
 
-
+//MODEL TO SIGN UP USERS
 export const signUpUsers = (name:string, email:string, password:string) => {
     const newUser = {
         name, 
@@ -33,5 +34,5 @@ export const signUpUsers = (name:string, email:string, password:string) => {
         password
     }
     users.push(newUser)
-    return newUser
+    return {user:newUser}
 }

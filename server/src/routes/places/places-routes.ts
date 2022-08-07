@@ -3,9 +3,9 @@ import { httpCreatePlace, httpDeletePlace, httpEditPlace, httpFetchPlacesByPlace
 
 const placesRoutes = express.Router()
 
+placesRoutes.post('/', httpCreatePlace)
 placesRoutes.get('/user/:uid', httpFetchPlacesByUserID)
 placesRoutes.get('/:pid', httpFetchPlacesByPlaceId)
-placesRoutes.post('/', httpCreatePlace)
 placesRoutes.patch("/:pid", httpEditPlace)
 placesRoutes.delete("/:pid",httpDeletePlace )
 

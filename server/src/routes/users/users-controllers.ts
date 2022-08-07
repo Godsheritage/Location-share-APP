@@ -11,6 +11,7 @@ export const httpGetUsers: RequestHandler = (req, res) => {
 };
 
 
+//controller to sign in users
 export const httpLoginUsers: RequestHandler = (req, res) => {
   const errors = validationResult(req)
   if(!errors.isEmpty()){
