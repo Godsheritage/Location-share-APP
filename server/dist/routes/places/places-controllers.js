@@ -23,11 +23,13 @@ const httpFetchPlacesByUserID = (req, res) => {
     return res.status(200).json(place);
 };
 exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
+//to create a new place
 const httpCreatePlace = (req, res) => {
     (0, places_models_2.createPlaces)(req.body);
     return res.status(201).json({ message: "created" });
 };
 exports.httpCreatePlace = httpCreatePlace;
+//to edit a place
 const httpEditPlace = (req, res) => {
     const placeId = req.params.pid;
     const { title, description } = req.body;
@@ -35,6 +37,7 @@ const httpEditPlace = (req, res) => {
     return res.status(200).json({ message: "edited" });
 };
 exports.httpEditPlace = httpEditPlace;
+//to delete a place
 const httpDeletePlace = (req, res) => {
     const placeId = req.params.pid;
     return res.status(200).json((0, places_models_2.deletePlaces)(placeId));

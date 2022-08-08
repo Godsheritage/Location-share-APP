@@ -27,14 +27,13 @@ export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
   return res.status(200).json(place);
 };
 
-
+//to create a new place
 export const httpCreatePlace: RequestHandler = (req, res) => {
   createPlaces(req.body)
   return res.status(201).json({ message: "created" });
 };
 
-
-
+//to edit a place
 export const httpEditPlace: RequestHandler = (req, res) => {
   const placeId = req.params.pid;
   const {title, description} = req.body;
@@ -42,7 +41,7 @@ export const httpEditPlace: RequestHandler = (req, res) => {
   return res.status(200).json({ message: "edited" });
 };
 
-
+//to delete a place
 export const httpDeletePlace: RequestHandler = (req, res) => {
   const placeId = req.params.pid;
   return res.status(200).json(deletePlaces(placeId));
