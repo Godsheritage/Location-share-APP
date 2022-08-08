@@ -26,6 +26,7 @@ const createPlaces = (place) => {
     exports.DUMMY_PLACES.push(place);
 };
 exports.createPlaces = createPlaces;
+//GET A PLACE BY ITS
 const getPlacesByPlaceId = (pid) => {
     const foundPlace = exports.DUMMY_PLACES.find((place) => place.id === pid);
     return foundPlace;
