@@ -22,9 +22,11 @@ export let DUMMY_PLACES: any = [
   },
 ];
 
+  //CREATE A PLACE
 export const createPlaces = (place: placeTypes["items"]) => {
   DUMMY_PLACES.push(place);
 };
+
 
 export const getPlacesByPlaceId = (pid: string) => {
   const foundPlace = DUMMY_PLACES.find(

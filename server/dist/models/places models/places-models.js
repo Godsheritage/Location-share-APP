@@ -21,6 +21,7 @@ exports.DUMMY_PLACES = [
         creator: "u2",
     },
 ];
+//CREATE A PLACE
 const createPlaces = (place) => {
     exports.DUMMY_PLACES.push(place);
 };
