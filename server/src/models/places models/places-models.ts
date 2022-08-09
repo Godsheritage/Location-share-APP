@@ -51,10 +51,13 @@ export const editPlaces = (pid: string, title: string, description: string) => {
   const foundIndex = DUMMY_PLACES.findIndex(
     (place: placeTypes["items"]) => place.id === pid
   );
+  if(!foundPlace || !foundIndex){
+    return 'place not found'
+  }
   foundPlace.title = title;
   foundPlace.description = description;
   DUMMY_PLACES[foundIndex] = foundPlace;
-  return foundPlace;
+  return DUMMY_PLACES[foundIndex];
 };
 
 //delete places by user id

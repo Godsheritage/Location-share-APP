@@ -46,8 +46,7 @@ export const httpEditPlace: RequestHandler = (req, res) => {
   }
   const placeId = req.params.pid;
   const { title, description } = req.body;
-  editPlaces(placeId, title, description);
-  return res.status(200).json({ message: "edited" });
+  return res.status(200).json(editPlaces(placeId, title, description));
 };
 
 //to delete a place

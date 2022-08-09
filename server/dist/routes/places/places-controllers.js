@@ -42,8 +42,7 @@ const httpEditPlace = (req, res) => {
     }
     const placeId = req.params.pid;
     const { title, description } = req.body;
-    (0, places_models_1.editPlaces)(placeId, title, description);
-    return res.status(200).json({ message: "edited" });
+    return res.status(200).json((0, places_models_1.editPlaces)(placeId, title, description));
 };
 exports.httpEditPlace = httpEditPlace;
 //to delete a place

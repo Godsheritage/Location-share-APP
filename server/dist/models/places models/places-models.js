@@ -42,10 +42,13 @@ exports.getPlacesByUserId = getPlacesByUserId;
 const editPlaces = (pid, title, description) => {
     const foundPlace = Object.assign({}, exports.DUMMY_PLACES.find((place) => place.id === pid));
     const foundIndex = exports.DUMMY_PLACES.findIndex((place) => place.id === pid);
+    if (!foundPlace || !foundIndex) {
+        return 'place not found';
+    }
     foundPlace.title = title;
     foundPlace.description = description;
     exports.DUMMY_PLACES[foundIndex] = foundPlace;
-    return foundPlace;
+    return exports.DUMMY_PLACES[foundIndex];
 };
 exports.editPlaces = editPlaces;
 //delete places by user id
