@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.httpDeletePlace = exports.httpEditPlace = exports.httpCreatePlace = exports.httpFetchPlacesByUserID = exports.httpFetchPlacesByPlaceId = void 0;
 const places_models_1 = require("./../../models/places models/places-models");
 const places_models_2 = require("../../models/places models/places-models");
+const express_validator_1 = require("express-validator");
 //FETCH THE PLACES BY ID
 const httpFetchPlacesByPlaceId = (req, res) => {
     const placeId = req.params.pid;
@@ -25,13 +26,20 @@ const httpFetchPlacesByUserID = (req, res) => {
 exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
 //to create a new place
 const httpCreatePlace = (req, res) => {
-    const { id, description, address, image, location: { lat, lng }, title, creator, } = req.body;
+    const error = (0, express_validator_1.validationResult)(req);
+    if (!error.isEmpty()) {
+        return res.status(422).json({ error: error.array() });
+    }
     (0, places_models_2.createPlaces)(req.body);
     return res.status(201).json({ message: "created" });
 };
 exports.httpCreatePlace = httpCreatePlace;
 //to edit a place
 const httpEditPlace = (req, res) => {
+    const error = (0, express_validator_1.validationResult)(req);
+    if (!error.isEmpty()) {
+        return res.status(422).json({ error: error.array() });
+    }
     const placeId = req.params.pid;
     const { title, description } = req.body;
     (0, places_models_1.editPlaces)(placeId, title, description);

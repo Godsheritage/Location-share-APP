@@ -6,6 +6,7 @@ import {
   getPlacesByUserId,
   createPlaces,
 } from "../../models/places models/places-models";
+import { validationResult } from "express-validator";
 
 //FETCH THE PLACES BY ID
 export const httpFetchPlacesByPlaceId: RequestHandler = (req, res) => {
@@ -29,21 +30,20 @@ export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
 
 //to create a new place
 export const httpCreatePlace: RequestHandler = (req, res) => {
-  const {
-    id,
-    description,
-    address,
-    image,
-    location: { lat, lng },
-    title,
-    creator,
-  } = req.body;
+  const error = validationResult(req);
+  if (!error.isEmpty()) {
+    return res.status(422).json({ error: error.array() });
+  }
   createPlaces(req.body);
   return res.status(201).json({ message: "created" });
 };
 
 //to edit a place
 export const httpEditPlace: RequestHandler = (req, res) => {
+  const error = validationResult(req);
+  if (!error.isEmpty()) {
+    return res.status(422).json({ error: error.array() });
+  }
   const placeId = req.params.pid;
   const { title, description } = req.body;
   editPlaces(placeId, title, description);
