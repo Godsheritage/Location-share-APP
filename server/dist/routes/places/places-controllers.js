@@ -25,6 +25,7 @@ const httpFetchPlacesByUserID = (req, res) => {
 exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
 //to create a new place
 const httpCreatePlace = (req, res) => {
+    const { id, description, address, image, location: { lat, lng }, title, creator, } = req.body;
     (0, places_models_2.createPlaces)(req.body);
     return res.status(201).json({ message: "created" });
 };

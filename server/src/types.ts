@@ -4,7 +4,7 @@ export interface placeTypes {
       description: string;
       address: string;
       image: string;
-      loation: { lat: number; lng: number };
+      location: { lat: number; lng: number };
       title: string;
       creator: string;
     };

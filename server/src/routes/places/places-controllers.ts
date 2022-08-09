@@ -1,10 +1,10 @@
-import { editPlaces } from './../../models/places models/places-models';
+import { editPlaces } from "./../../models/places models/places-models";
 import { RequestHandler } from "express";
 import {
   deletePlaces,
   getPlacesByPlaceId,
   getPlacesByUserId,
-  createPlaces
+  createPlaces,
 } from "../../models/places models/places-models";
 
 //FETCH THE PLACES BY ID
@@ -21,7 +21,7 @@ export const httpFetchPlacesByPlaceId: RequestHandler = (req, res) => {
 export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
   const userId = req.params.uid;
   const place = getPlacesByUserId(userId);
-  if (!place|| place.length ===0 ) {
+  if (!place || place.length === 0) {
     return res.status(404).json({ message: "could not find place" });
   }
   return res.status(200).json(place);
@@ -29,15 +29,24 @@ export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
 
 //to create a new place
 export const httpCreatePlace: RequestHandler = (req, res) => {
-  createPlaces(req.body)
+  const {
+    id,
+    description,
+    address,
+    image,
+    location: { lat, lng },
+    title,
+    creator,
+  } = req.body;
+  createPlaces(req.body);
   return res.status(201).json({ message: "created" });
 };
 
 //to edit a place
 export const httpEditPlace: RequestHandler = (req, res) => {
   const placeId = req.params.pid;
-  const {title, description} = req.body;
-  editPlaces(placeId, title, description)
+  const { title, description } = req.body;
+  editPlaces(placeId, title, description);
   return res.status(200).json({ message: "edited" });
 };
 
