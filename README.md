@@ -1,2 +1,2 @@
 # Location-share-APP
-This is a web application that 
+This is a web application to share that 
