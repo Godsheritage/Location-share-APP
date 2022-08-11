@@ -1,3 +1,2 @@
 # Location-share-APP
-This is a web application 
-currently hasnt been
+This is a web application that 
