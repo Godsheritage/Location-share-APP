@@ -43,6 +43,7 @@ export const getPlacesByUserId = (uid: string) => {
   return foundPlace;
 };
 
+
 //edit places by user id
 export const editPlaces = (pid: string, title: string, description: string) => {
   const foundPlace = {
