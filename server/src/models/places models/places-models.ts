@@ -1,4 +1,5 @@
 import { placeTypes } from "./../../types";
+import model from "./places-mongo";
 export let DUMMY_PLACES: any = [
   {
     id: "p1",
