@@ -1,12 +1,23 @@
 import http from "http";
 import app from "./app";
+import mongoose from "mongoose";
 
+let MOGO_URL = '2'
 const server = http.createServer(app);
 
-let port = process.env.PORT || 1234;
+const port = process.env.PORT || 1234;
 
-const mongoURL = 
+mongoose.connection.once("open", () => {
+  console.log("Mongodb connection is ready");
+});
 
-server.listen(port, () => {
+mongoose.connection.on("error", (err) => {
+  console.log(err);
+});
+
+
+server.listen(port, async () => {
+  await mongoose.connect(MOGO_URL);  
+
   console.log(`app is listening on port ${port}...`);
 });
