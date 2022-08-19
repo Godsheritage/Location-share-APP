@@ -10,6 +10,6 @@ const schema = new mongoose.Schema({
   creator: String,
 });
 
-const model = mongoose.model('place', schema) 
+const places = mongoose.model('place', schema) 
 
-export default model
+export default places

@@ -13,5 +13,5 @@ const schema = new mongoose_1.default.Schema({
     title: String,
     creator: String,
 });
-const model = mongoose_1.default.model('place', schema);
-exports.default = model;
+const places = mongoose_1.default.model('place', schema);
+exports.default = places;

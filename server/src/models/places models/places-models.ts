@@ -1,5 +1,6 @@
 import { placeTypes } from "./../../types";
 import model from "./places-mongo";
+import places from "./places-mongo";
 export let DUMMY_PLACES: any = [
   {
     id: "p1",
@@ -26,13 +27,19 @@ export let DUMMY_PLACES: any = [
   //CREATE A PLACE
 export const createPlaces = (place: placeTypes["items"]) => {
   DUMMY_PLACES.push(place);
+  places.create(place)
 };
 
 //GET A PLACE BY ITS
 export const getPlacesByPlaceId = (pid: string) => {
-  const foundPlace = DUMMY_PLACES.find(
-    (place: placeTypes["items"]) => place.id === pid
-  );
+  const foundPlace =  places.findOne({ id:pid })
+  if(!foundPlace){
+    return 'place not found'
+  }
+  // const foundPlace = DUMMY_PLACES.find(
+  //   (place: placeTypes["items"]) => place.id === pid
+  // );
+ 
   return foundPlace;
 };
 

@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deletePlaces = exports.editPlaces = exports.getPlacesByUserId = exports.getPlacesByPlaceId = exports.createPlaces = exports.DUMMY_PLACES = void 0;
+const places_mongo_1 = __importDefault(require("./places-mongo"));
 exports.DUMMY_PLACES = [
     {
         id: "p1",
@@ -24,11 +28,18 @@ exports.DUMMY_PLACES = [
 //CREATE A PLACE
 const createPlaces = (place) => {
     exports.DUMMY_PLACES.push(place);
+    places_mongo_1.default.create(place);
 };
 exports.createPlaces = createPlaces;
 //GET A PLACE BY ITS
 const getPlacesByPlaceId = (pid) => {
-    const foundPlace = exports.DUMMY_PLACES.find((place) => place.id === pid);
+    const foundPlace = places_mongo_1.default.findOne({ id: pid });
+    if (!foundPlace) {
+        return 'place not found';
+    }
+    // const foundPlace = DUMMY_PLACES.find(
+    //   (place: placeTypes["items"]) => place.id === pid
+    // );
     return foundPlace;
 };
 exports.getPlacesByPlaceId = getPlacesByPlaceId;
