@@ -26,8 +26,8 @@ mongoose_1.default.connection.once("open", () => {
 mongoose_1.default.connection.on("error", (err) => {
     console.log(err);
 });
-// console.log(MOGO_URL)
+// console.log(process.env)
 server.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
-    yield mongoose_1.default.connect(process.env.MONGO_URL);
+    yield mongoose_1.default.connect("mongodb+srv://Godsheritage:Godsheritage@Locator.f2ufuyz.mongodb.net/?retryWrites=true&w=majority");
     console.log(`app is listening on port ${port}...`);
 }));

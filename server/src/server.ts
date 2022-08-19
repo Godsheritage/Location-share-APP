@@ -19,9 +19,9 @@ mongoose.connection.on("error", (err) => {
   console.log(err);
 });
 
-// console.log(MOGO_URL)
+// console.log(process.env)
 
 server.listen(port, async () => {
-  await mongoose.connect(process.env.MONGO_URL!);  
+  await mongoose.connect("mongodb+srv://Godsheritage:Godsheritage@Locator.f2ufuyz.mongodb.net/?retryWrites=true&w=majority");  
   console.log(`app is listening on port ${port}...`);
 });
