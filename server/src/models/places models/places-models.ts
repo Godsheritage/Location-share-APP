@@ -45,9 +45,13 @@ export const getPlacesByPlaceId = (pid: string) => {
 
 //to geta places by user ID
 export const getPlacesByUserId = (uid: string) => {
-  const foundPlace = DUMMY_PLACES.filter(
-    (place: placeTypes["items"]) => place.creator === uid
-  );
+  const foundPlace =  places.findOne({ creator:uid })
+  // const foundPlace = DUMMY_PLACES.filter(
+  //   (place: placeTypes["items"]) => place.creator === uid
+  // );
+  if(!foundPlace){
+    return 'place not found'
+  }
   return foundPlace;
 };
 
@@ -71,8 +75,10 @@ export const editPlaces = (pid: string, title: string, description: string) => {
 
 //delete places by user id
 export const deletePlaces = (pid: string) => {
-  DUMMY_PLACES = DUMMY_PLACES.filter(
-    (place: placeTypes["items"]) => place.id !== pid
-  );
+  places.deleteOne({id:pid})
+
+  // DUMMY_PLACES = DUMMY_PLACES.filter(
+  //   (place: placeTypes["items"]) => place.id !== pid
+  // );
   return DUMMY_PLACES
 };
