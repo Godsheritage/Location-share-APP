@@ -1,8 +1,12 @@
 import http from "http";
 import app from "./app";
+import dotenv from 'dotenv'
 import mongoose from "mongoose";
 
-let MOGO_URL = '2'
+dotenv.config()
+
+
+let MOGO_URL:string = process.env.MONGO_URL!
 const server = http.createServer(app);
 
 const port = process.env.PORT || 1234;
