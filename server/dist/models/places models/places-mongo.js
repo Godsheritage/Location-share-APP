@@ -6,13 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 // MONGODB SCHEMA
 const schema = new mongoose_1.default.Schema({
-    id: String,
-    description: String,
-    address: String,
-    image: String,
+    id: { required: true, type: String },
+    description: { required: true, type: String },
+    address: { required: true, type: String },
+    image: { required: true, type: String },
     location: { lat: Number, lng: Number },
-    title: String,
-    creator: String,
+    title: { required: true, type: String },
+    creator: { required: true, type: String },
 });
-const places = mongoose_1.default.model('place', schema);
+const places = mongoose_1.default.model("place", schema);
 exports.default = places;
