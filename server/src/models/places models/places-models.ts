@@ -73,7 +73,8 @@ export const editPlaces = (pid: string, title: string, description: string) => {
   return DUMMY_PLACES[foundIndex];
 };
 
-//delete places by user id
+
+//delete places by place id
 export const deletePlaces = (pid: string) => {
   places.deleteOne({id:pid})
 

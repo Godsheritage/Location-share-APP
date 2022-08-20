@@ -22,10 +22,10 @@ export const httpFetchPlacesByPlaceId: RequestHandler = (req, res) => {
 export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
   const userId = req.params.uid;
   const place = getPlacesByUserId(userId);
-  if (!place || place.length === 0) {
+  if (!place) {
     return res.status(404).json({ message: "could not find place" });
   }
-  return res.status(200).json(place);
+  return res.status(200).json({ message: "place found" }, place);
 };
 
 //to create a new place

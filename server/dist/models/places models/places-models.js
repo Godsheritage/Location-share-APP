@@ -68,7 +68,7 @@ const editPlaces = (pid, title, description) => {
     return exports.DUMMY_PLACES[foundIndex];
 };
 exports.editPlaces = editPlaces;
-//delete places by user id
+//delete places by place id
 const deletePlaces = (pid) => {
     places_mongo_1.default.deleteOne({ id: pid });
     // DUMMY_PLACES = DUMMY_PLACES.filter(

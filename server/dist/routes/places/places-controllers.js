@@ -18,10 +18,10 @@ exports.httpFetchPlacesByPlaceId = httpFetchPlacesByPlaceId;
 const httpFetchPlacesByUserID = (req, res) => {
     const userId = req.params.uid;
     const place = (0, places_models_2.getPlacesByUserId)(userId);
-    if (!place || place.length === 0) {
+    if (!place) {
         return res.status(404).json({ message: "could not find place" });
     }
-    return res.status(200).json(place);
+    return res.status(200).json({ message: "place found" }, place);
 };
 exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
 //to create a new place
