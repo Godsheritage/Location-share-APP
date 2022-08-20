@@ -38,7 +38,8 @@ const signUpUsers = (name, email, password) => {
         email,
         password,
     };
-    users.push(newUser);
+    users_mongo_1.default.create(newUser);
+    //   users.push(newUser);
     return { user: newUser };
 };
 exports.signUpUsers = signUpUsers;

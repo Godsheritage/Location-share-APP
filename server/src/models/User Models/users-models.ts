@@ -32,6 +32,7 @@ export const signUpUsers = (name: string, email: string, password: string) => {
     email,
     password,
   };
-  users.push(newUser);
+  userModel.create(newUser)
+//   users.push(newUser);
   return { user: newUser };
 };
