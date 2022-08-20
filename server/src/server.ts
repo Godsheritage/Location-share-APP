@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 dotenv.config()
 
 
-// let MOGO_URL:string =
+let MONGO_URL:string = process.env.MONGO_URL!
 const server = http.createServer(app);
   
 const port = process.env.PORT || 1234;
@@ -22,6 +22,7 @@ mongoose.connection.on("error", (err) => {
 // console.log(process.env)
 
 server.listen(port, async () => {
-  await mongoose.connect("mongodb+srv://Godsheritage:Godsheritage@Location.f2ufuyz.mongodb.net/?retryWrites=true&w=majority");  
+  await mongoose.connect(MONGO_URL);  
   console.log(`app is listening on port ${port}...`);
 });
+ 

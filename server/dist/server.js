@@ -17,7 +17,7 @@ const app_1 = __importDefault(require("./app"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const mongoose_1 = __importDefault(require("mongoose"));
 dotenv_1.default.config();
-// let MOGO_URL:string =
+let MONGO_URL = process.env.MONGO_URL;
 const server = http_1.default.createServer(app_1.default);
 const port = process.env.PORT || 1234;
 mongoose_1.default.connection.once("open", () => {
@@ -28,6 +28,6 @@ mongoose_1.default.connection.on("error", (err) => {
 });
 // console.log(process.env)
 server.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
-    yield mongoose_1.default.connect("mongodb+srv://Godsheritage:Godsheritage@Locator.f2ufuyz.mongodb.net/?retryWrites=true&w=majority");
+    yield mongoose_1.default.connect(MONGO_URL);
     console.log(`app is listening on port ${port}...`);
 }));
