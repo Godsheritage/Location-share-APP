@@ -1,14 +1,13 @@
 import http from "http";
 import app from "./app";
-import dotenv from 'dotenv'
+import dotenv from "dotenv";
 import mongoose from "mongoose";
 
-dotenv.config()
+dotenv.config();
 
-
-let MONGO_URL:string = process.env.MONGO_URL!
+let MONGO_URL: string = process.env.MONGO_URL!;
 const server = http.createServer(app);
-  
+
 const port = process.env.PORT || 1234;
 
 mongoose.connection.once("open", () => {
@@ -19,10 +18,11 @@ mongoose.connection.on("error", (err) => {
   console.log(err);
 });
 
-// console.log(process.env)
+const startServer = () => {
+  server.listen(port, async () => {
+    await mongoose.connect(MONGO_URL);
+    console.log(`app is listening on port ${port}...`);
+  });
+};
 
-server.listen(port, async () => {
-  await mongoose.connect(MONGO_URL);  
-  console.log(`app is listening on port ${port}...`);
-});
- 
+startServer()

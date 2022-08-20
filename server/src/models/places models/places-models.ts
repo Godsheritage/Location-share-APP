@@ -26,11 +26,11 @@ export let DUMMY_PLACES: any = [
 
   //CREATE A PLACE
 export const createPlaces = (place: placeTypes["items"]) => {
-  DUMMY_PLACES.push(place);
+  // DUMMY_PLACES.push(place);
   places.create(place)
 };
 
-//GET A PLACE BY ITS
+//GET A PLACE BY ITS PLACE ID
 export const getPlacesByPlaceId = (pid: string) => {
   const foundPlace =  places.findOne({ id:pid })
   if(!foundPlace){

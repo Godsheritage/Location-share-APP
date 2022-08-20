@@ -27,11 +27,11 @@ exports.DUMMY_PLACES = [
 ];
 //CREATE A PLACE
 const createPlaces = (place) => {
-    exports.DUMMY_PLACES.push(place);
+    // DUMMY_PLACES.push(place);
     places_mongo_1.default.create(place);
 };
 exports.createPlaces = createPlaces;
-//GET A PLACE BY ITS
+//GET A PLACE BY ITS PLACE ID
 const getPlacesByPlaceId = (pid) => {
     const foundPlace = places_mongo_1.default.findOne({ id: pid });
     if (!foundPlace) {
