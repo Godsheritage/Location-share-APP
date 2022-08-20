@@ -43,7 +43,7 @@ const getPlacesByPlaceId = (pid) => {
     return foundPlace;
 };
 exports.getPlacesByPlaceId = getPlacesByPlaceId;
-//to geta places by user ID
+//GET A PLACE BY USER ID
 const getPlacesByUserId = (uid) => {
     const foundPlace = places_mongo_1.default.findOne({ creator: uid });
     // const foundPlace = DUMMY_PLACES.filter(
@@ -55,7 +55,7 @@ const getPlacesByUserId = (uid) => {
     return foundPlace;
 };
 exports.getPlacesByUserId = getPlacesByUserId;
-//edit places by user id
+//EDIT PLACES BY USER ID
 const editPlaces = (pid, title, description) => {
     const foundPlace = Object.assign({}, exports.DUMMY_PLACES.find((place) => place.id === pid));
     const foundIndex = exports.DUMMY_PLACES.findIndex((place) => place.id === pid);
@@ -68,7 +68,7 @@ const editPlaces = (pid, title, description) => {
     return exports.DUMMY_PLACES[foundIndex];
 };
 exports.editPlaces = editPlaces;
-//delete places by place id
+//DELETE PLACES BY USER ID
 const deletePlaces = (pid) => {
     places_mongo_1.default.deleteOne({ id: pid });
     // DUMMY_PLACES = DUMMY_PLACES.filter(

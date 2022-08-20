@@ -21,7 +21,7 @@ const httpFetchPlacesByUserID = (req, res) => {
     if (!place) {
         return res.status(404).json({ message: "could not find place" });
     }
-    return res.status(200).json({ message: "place found" }, place);
+    return res.status(200).json({ message: "place found", place });
 };
 exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
 //to create a new place
