@@ -22,6 +22,6 @@ mongoose.connection.on("error", (err) => {
 // console.log(process.env)
 
 server.listen(port, async () => {
-  await mongoose.connect("mongodb+srv://Godsheritage:Godsheritage@Locator.f2ufuyz.mongodb.net/?retryWrites=true&w=majority");  
+  await mongoose.connect("mongodb+srv://Godsheritage:Godsheritage@Location.f2ufuyz.mongodb.net/?retryWrites=true&w=majority");  
   console.log(`app is listening on port ${port}...`);
 });

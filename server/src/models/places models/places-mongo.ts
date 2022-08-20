@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// MONGODB SCHEMA
 const schema = new mongoose.Schema({
   id: String,
   description: String,
