@@ -66,7 +66,7 @@ export const editPlaces = (pid: string, title: string, description: string) => {
   );
   if(!foundPlace || !foundIndex){
     return 'place not found'
-  }
+  } 
   foundPlace.title = title;
   foundPlace.description = description;
   DUMMY_PLACES[foundIndex] = foundPlace;
