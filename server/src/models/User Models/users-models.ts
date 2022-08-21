@@ -10,8 +10,8 @@ const users: any = [
 ];
 
 export const getAllUsers = async () => {
-  await userModel.find({})
-  return users;
+  return await userModel.find({})
+  // return users;
 };
 
 //MODEL TO SIGN IN USERS
