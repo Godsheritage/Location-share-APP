@@ -14,3 +14,4 @@ const schema = new mongoose.Schema({
 const places = mongoose.model("place", schema);
 
 export default places;
+ 
