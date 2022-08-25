@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 // MONGODB SCHEMA
-const schema = new mongoose.Schema({
+const placeschema = new mongoose.Schema({
   id: { required: true, type: String },
   description: { required: true, type: String },
   address: { required: true, type: String },
@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
   creator: { required: true, type: String },
 });
 
-const places = mongoose.model("place", schema);
+const places = mongoose.model("place", placeschema);
 
 export default places;
  
