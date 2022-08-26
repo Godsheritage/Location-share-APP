@@ -29,7 +29,7 @@ export const createPlaces = async (place: placeTypes["items"]) => {
   await places.create(place);
 };
 
-//GET A PLACE BY ITS PLACE ID
+//GET A PLACE FROM THE DATABASE BY THE PLACE ID
 export const getPlacesByPlaceId = async (pid: string) => {
   const foundPlace = await places.findById(pid);
   if (!foundPlace) {
@@ -38,26 +38,18 @@ export const getPlacesByPlaceId = async (pid: string) => {
   return { message: "place found", status: 200, foundPlace };
 };
 
-//GET A PLACE BY USER ID
+//GET A PLACE FROM THE DATABASE BY CREATOR ID
 export const getPlacesByUserId = (uid: string) => {
   const foundPlace = places.findOne({ creator: uid });
   if (!foundPlace) {
-    return "place not found";
+    return { message: "could not find place", status: 404 };
   }
-  return foundPlace;
+  return { message: "place found", status: 200, foundPlace };
 };
 
 //EDIT PLACES BY USER ID
-export const editPlaces = (pid: string, title: string, description: string) => {
-  const foundPlace = {
-    ...DUMMY_PLACES.find((place: placeTypes["items"]) => place.id === pid),
-  };
-  const foundIndex = DUMMY_PLACES.findIndex(
-    (place: placeTypes["items"]) => place.id === pid
-  );
-  if (!foundPlace || !foundIndex) {
-    return "place not found";
-  }
+export const editPlaces = async (pid: string, title: string, description: string) => {
+ const place = await places.findById(pid);
   foundPlace.title = title;
   foundPlace.description = description;
   DUMMY_PLACES[foundIndex] = foundPlace;
@@ -65,11 +57,11 @@ export const editPlaces = (pid: string, title: string, description: string) => {
 };
 
 //DELETE PLACES BY USER ID
-export const deletePlaces = (pid: string) => {
-  places.deleteOne({ id: pid });
-
-  // DUMMY_PLACES = DUMMY_PLACES.filter(
-  //   (place: placeTypes["items"]) => place.id !== pid
-  // );
-  return DUMMY_PLACES;
+export const deletePlaces = async (pid: string) => {
+  const place = await places.findById(pid);
+  if (!place) {
+    return { message: "place not found", status: 404 };
+  }
+  await places.deleteOne({ id: pid });
+  return {message:'place has been deleted', status:200};
 };
