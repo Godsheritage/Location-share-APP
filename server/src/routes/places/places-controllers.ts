@@ -8,10 +8,10 @@ import {
 } from "../../models/places models/places-models";
 import { validationResult } from "express-validator";
 
-//FETCH THE PLACES BY ID
-export const httpFetchPlacesByPlaceId: RequestHandler = (req, res) => {
+//GET PLACES BY PLACE ID
+export const httpFetchPlacesByPlaceId: RequestHandler = async (req, res) => {
   const placeId: string = req.params.pid;
-  const place = getPlacesByPlaceId(placeId);
+  const place = await getPlacesByPlaceId(placeId);
   if (!place) {
     return res.status(404).json({ message: "could not find place" });
   }

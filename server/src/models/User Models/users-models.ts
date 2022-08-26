@@ -35,6 +35,5 @@ export const signUpUsers = async (name: string, email: string, password: string)
     password,
   };
   await userModel.create(newUser)
-//   users.push(newUser);
   return { user: newUser };
 };

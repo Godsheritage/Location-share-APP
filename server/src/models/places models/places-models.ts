@@ -25,13 +25,13 @@ export let DUMMY_PLACES: any = [
 ];
 
 //CREATE A PLACE
-export const createPlaces = (place: placeTypes["items"]) => {
-  places.create(place);
+export const createPlaces = async (place: placeTypes["items"]) => {
+  await places.create(place);
 };
 
 //GET A PLACE BY ITS PLACE ID
-export const getPlacesByPlaceId = (pid: string) => {
-  const foundPlace = places.findById(pid);
+export const getPlacesByPlaceId = async (pid: string) => {
+  const foundPlace = await places.findById(pid);
   if (!foundPlace) {
     return "place not found";
   }
