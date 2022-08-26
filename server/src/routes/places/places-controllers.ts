@@ -18,7 +18,7 @@ export const httpFetchPlacesByPlaceId: RequestHandler = async (req, res) => {
   return res.status(200).json(place);
 };
 
-//to fetch the place by user ID
+//FETCH PLACE BY USER ID
 export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
   const userId = req.params.uid;
   const place = getPlacesByUserId(userId);
@@ -28,7 +28,7 @@ export const httpFetchPlacesByUserID: RequestHandler = (req, res) => {
   return res.status(200).json({ message: "place found", place });
 };
 
-//to create a new place
+//CREATE A NEW PLACE 
 export const httpCreatePlace: RequestHandler = (req, res) => {
   const error = validationResult(req);
   if (!error.isEmpty()) {
@@ -38,7 +38,7 @@ export const httpCreatePlace: RequestHandler = (req, res) => {
   return res.status(201).json({ message: "created" });
 };
 
-//to edit a place
+//EDIT A PLACE 
 export const httpEditPlace: RequestHandler = (req, res) => {
   const error = validationResult(req);
   if (!error.isEmpty()) {
@@ -49,7 +49,7 @@ export const httpEditPlace: RequestHandler = (req, res) => {
   return res.status(200).json(editPlaces(placeId, title, description));
 };
 
-//to delete a place
+//DELETE A PLACE
 export const httpDeletePlace: RequestHandler = (req, res) => {
   const placeId = req.params.pid;
   return res.status(200).json(deletePlaces(placeId));
