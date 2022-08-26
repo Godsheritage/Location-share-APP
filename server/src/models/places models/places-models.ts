@@ -24,37 +24,35 @@ export let DUMMY_PLACES: any = [
   },
 ];
 
-  //CREATE A PLACE
+//CREATE A PLACE
 export const createPlaces = (place: placeTypes["items"]) => {
-  // DUMMY_PLACES.push(place);
-  places.create(place)
+  places.create(place);
 };
 
 //GET A PLACE BY ITS PLACE ID
 export const getPlacesByPlaceId = (pid: string) => {
-  const foundPlace =  places.findOne({ id:pid })
-  if(!foundPlace){
-    return 'place not found'
+  const foundPlace = places.findById(pid);
+  if (!foundPlace) {
+    return "place not found";
   }
   // const foundPlace = DUMMY_PLACES.find(
   //   (place: placeTypes["items"]) => place.id === pid
   // );
- 
+
   return foundPlace;
 };
 
 //GET A PLACE BY USER ID
 export const getPlacesByUserId = (uid: string) => {
-  const foundPlace =  places.findOne({ creator:uid })
+  const foundPlace = places.findOne({ creator: uid });
   // const foundPlace = DUMMY_PLACES.filter(
   //   (place: placeTypes["items"]) => place.creator === uid
   // );
-  if(!foundPlace){
-    return 'place not found'
+  if (!foundPlace) {
+    return "place not found";
   }
   return foundPlace;
 };
-
 
 //EDIT PLACES BY USER ID
 export const editPlaces = (pid: string, title: string, description: string) => {
@@ -64,22 +62,21 @@ export const editPlaces = (pid: string, title: string, description: string) => {
   const foundIndex = DUMMY_PLACES.findIndex(
     (place: placeTypes["items"]) => place.id === pid
   );
-  if(!foundPlace || !foundIndex){
-    return 'place not found'
-  } 
+  if (!foundPlace || !foundIndex) {
+    return "place not found";
+  }
   foundPlace.title = title;
   foundPlace.description = description;
   DUMMY_PLACES[foundIndex] = foundPlace;
   return DUMMY_PLACES[foundIndex];
 };
 
-
 //DELETE PLACES BY USER ID
 export const deletePlaces = (pid: string) => {
-  places.deleteOne({id:pid})
+  places.deleteOne({ id: pid });
 
   // DUMMY_PLACES = DUMMY_PLACES.filter(
   //   (place: placeTypes["items"]) => place.id !== pid
   // );
-  return DUMMY_PLACES
+  return DUMMY_PLACES;
 };
