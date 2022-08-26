@@ -33,21 +33,14 @@ export const createPlaces = async (place: placeTypes["items"]) => {
 export const getPlacesByPlaceId = async (pid: string) => {
   const foundPlace = await places.findById(pid);
   if (!foundPlace) {
-    return "place not found";
+    return { message: "could not find place", status: 404 };
   }
-  // const foundPlace = DUMMY_PLACES.find(
-  //   (place: placeTypes["items"]) => place.id === pid
-  // );
-
-  return foundPlace;
+  return { message: "place found", status: 200, foundPlace };
 };
 
 //GET A PLACE BY USER ID
 export const getPlacesByUserId = (uid: string) => {
   const foundPlace = places.findOne({ creator: uid });
-  // const foundPlace = DUMMY_PLACES.filter(
-  //   (place: placeTypes["items"]) => place.creator === uid
-  // );
   if (!foundPlace) {
     return "place not found";
   }

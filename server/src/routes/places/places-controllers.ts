@@ -12,10 +12,7 @@ import { validationResult } from "express-validator";
 export const httpFetchPlacesByPlaceId: RequestHandler = async (req, res) => {
   const placeId: string = req.params.pid;
   const place = await getPlacesByPlaceId(placeId);
-  if (!place) {
-    return res.status(404).json({ message: "could not find place" });
-  }
-  return res.status(200).json(place);
+  return res.status(place.status).json(place);
 };
 
 //FETCH PLACE BY USER ID
