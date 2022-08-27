@@ -10,23 +10,23 @@ export const httpGetUsers: RequestHandler = (req, res) => {
   return res.status(200).json(getAllUsers());
 };
 
-//controller to sign in users
-export const httpLoginUsers: RequestHandler = (req, res) => {
+// CONTROLLER TO SIGN IN USERS
+export const httpLoginUsers: RequestHandler = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
   const { email, password } = req.body;
-  return res.status(200).json(signInUsers(email, password));
+  const signIn = await signInUsers(email, password);
+  return res.status(signIn.status).json(signIn);
 };
 
-//controller to sign up user
-export const httpSignupUsers: RequestHandler = (req, res) => {
+// CONTROLLER TO SIGN UP USER
+export const httpSignupUsers: RequestHandler = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
-  // const { name, email, password, image, places } = req.body;
- 
-  return res.status(201).json(signUpUsers(req.body));
+  const signUp = await signUpUsers(req.body);
+  return res.status(signUp.status).json(signUp.message);
 };
