@@ -1,13 +1,6 @@
 import { userTypes } from './../../types';
 import userModel from "./users-mongo";
 
-const users: any = [
-  {
-    name: "Godsheritage Adeoye",
-    email: "adeoyegodsheritage@gmail.com",
-    password: "test12345",
-  },
-];
 
 export const getAllUsers = async () => {
   return await userModel.find({}, {__V:0})
