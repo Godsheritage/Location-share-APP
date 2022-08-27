@@ -33,15 +33,15 @@ export const httpCreatePlace: RequestHandler = async (req, res) => {
 };
 
 //EDIT A PLACE
-export const httpEditPlace: RequestHandler = (req, res) => {
+export const httpEditPlace: RequestHandler = async (req, res) => {
   const error = validationResult(req);
   if (!error.isEmpty()) {
     return res.status(422).json({ message: error.array() });
   }
   const placeId = req.params.pid;
   const { title, description } = req.body;
-  const edit = editPlaces(placeId, title, description)
-  return res.status(200).json();
+  const edit = await editPlaces(placeId, title, description);
+  return res.status(edit.status).json(edit.message);
 };
 
 //DELETE A PLACE

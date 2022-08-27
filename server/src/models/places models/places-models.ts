@@ -39,8 +39,8 @@ export const getPlacesByPlaceId = async (pid: string) => {
 };
 
 //GET A PLACE FROM THE DATABASE BY CREATOR ID
-export const getPlacesByUserId = (uid: string) => {
-  const foundPlace = places.findOne({ creator: uid });
+export const getPlacesByUserId = async (uid: string) => {
+  const foundPlace = await places.find({ creator: uid });
   if (!foundPlace) {
     return { message: "could not find place", status: 404 };
   }
@@ -48,12 +48,16 @@ export const getPlacesByUserId = (uid: string) => {
 };
 
 //EDIT PLACES BY USER ID
-export const editPlaces = async (pid: string, title: string, description: string) => {
- const place = await places.findById(pid);
-  foundPlace.title = title;
-  foundPlace.description = description;
-  DUMMY_PLACES[foundIndex] = foundPlace;
-  return DUMMY_PLACES[foundIndex];
+export const editPlaces = async (
+  pid: string,
+  title: string,
+  description: string
+) => {
+  const place = await places.updateOne({ _id: pid }, { title, description });
+  if(place.acknowledged !== true){
+    return {message:'couldnt update place', status:422}
+  }
+  return { message: "place udpated", status: 200 };
 };
 
 //DELETE PLACES BY USER ID
@@ -63,5 +67,5 @@ export const deletePlaces = async (pid: string) => {
     return { message: "place not found", status: 404 };
   }
   await places.deleteOne({ id: pid });
-  return {message:'place has been deleted', status:200};
+  return { message: "place has been deleted", status: 200 };
 };
