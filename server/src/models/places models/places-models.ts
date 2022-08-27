@@ -60,7 +60,7 @@ export const editPlaces = async (
   return { message: "place udpated", status: 200 };
 };
 
-//DELETE PLACES BY USER ID
+//DELETE PLACES BY USER ID FROM THE DATABASE
 export const deletePlaces = async (pid: string) => {
   const place = await places.findById(pid);
   if (!place) {

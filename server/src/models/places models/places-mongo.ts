@@ -11,7 +11,7 @@ const placeSchema = new mongoose.Schema({
   creator: { required: true, type: String },
 });
 
-const places = mongoose.model("place", placeSchema);
+const places = mongoose.model("Place", placeSchema);
 
 export default places;
  
