@@ -29,7 +29,7 @@ export const httpCreatePlace: RequestHandler = async (req, res) => {
     return res.status(422).json({ message: error.array() });
   }
   let newPlace = await createPlaces(req.body);
-  return res.status(newPlace.status).json({ message: newPlace?.message });
+  return res.status(newPlace.status).json({ message: newPlace.message });
 };
 
 //EDIT A PLACE
