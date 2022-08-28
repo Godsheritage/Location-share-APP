@@ -31,10 +31,10 @@ exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
 const httpCreatePlace = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const error = (0, express_validator_1.validationResult)(req);
     if (!error.isEmpty()) {
-        return res.status(422).json({ error: error.array() });
+        return res.status(422).json({ message: error.array() });
     }
-    yield (0, places_models_2.createPlaces)(req.body);
-    return res.status(201).json({ message: "place created" });
+    let newPlace = yield (0, places_models_2.createPlaces)(req.body);
+    return res.status(newPlace.status).json({ message: newPlace === null || newPlace === void 0 ? void 0 : newPlace.message });
 });
 exports.httpCreatePlace = httpCreatePlace;
 //EDIT A PLACE

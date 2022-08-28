@@ -26,12 +26,10 @@ export const httpFetchPlacesByUserID: RequestHandler = async (req, res) => {
 export const httpCreatePlace: RequestHandler = async (req, res) => {
   const error = validationResult(req);
   if (!error.isEmpty()) {
-    return res.status(422).json({ error: error.array() });
+    return res.status(422).json({ message: error.array() });
   }
-
-
-  await createPlaces(req.body);
-  return res.status(201).json({ message: "place created" });
+  let newPlace = await createPlaces(req.body);
+  return res.status(newPlace.status).json({ message: newPlace?.message });
 };
 
 //EDIT A PLACE

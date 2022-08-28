@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deletePlaces = exports.editPlaces = exports.getPlacesByUserId = exports.getPlacesByPlaceId = exports.createPlaces = exports.DUMMY_PLACES = void 0;
+const users_mongo_1 = __importDefault(require("../User Models/users-mongo"));
 const places_mongo_1 = __importDefault(require("./places-mongo"));
 exports.DUMMY_PLACES = [
     {
@@ -37,7 +38,12 @@ exports.DUMMY_PLACES = [
 //CREATE A PLACE
 const createPlaces = (place) => __awaiter(void 0, void 0, void 0, function* () {
     const { id, description, address, image, location: { lat, lng }, title, creator, } = place;
+    const user = yield users_mongo_1.default.findById(creator);
+    if (!user) {
+        return { message: "Could not find user provided for ID", status: 404 };
+    }
     yield places_mongo_1.default.create(place);
+    return {};
 });
 exports.createPlaces = createPlaces;
 //GET A PLACE FROM THE DATABASE BY THE PLACE ID
