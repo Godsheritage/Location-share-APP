@@ -9,7 +9,6 @@ export const getAllUsers = async () => {
 //MODEL TO SIGN IN USERS
 export const signInUsers = async (email: string, password: string) => {
   const foundUser = await userModel.findOne({ email });
-  // const foundUser = users.find((user:any) => user.email === email)
   if (!foundUser) {
     return { message: "user not found", status:404};
   } else if (foundUser.password !== password) {

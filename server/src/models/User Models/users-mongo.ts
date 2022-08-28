@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+
+//MONGOOSE USERS SCHEMA
 const schema: mongoose.Schema = new mongoose.Schema({
   mame: { required: true, type: String },
   email: {
@@ -12,6 +14,7 @@ const schema: mongoose.Schema = new mongoose.Schema({
   places: { required: true, type: String },
 });
 
+//MONGOOSE USER MODELS
 const userModel = mongoose.model("User", schema);
 
 export default userModel;

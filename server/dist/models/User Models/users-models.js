@@ -21,7 +21,6 @@ exports.getAllUsers = getAllUsers;
 //MODEL TO SIGN IN USERS
 const signInUsers = (email, password) => __awaiter(void 0, void 0, void 0, function* () {
     const foundUser = yield users_mongo_1.default.findOne({ email });
-    // const foundUser = users.find((user:any) => user.email === email)
     if (!foundUser) {
         return { message: "user not found", status: 404 };
     }
