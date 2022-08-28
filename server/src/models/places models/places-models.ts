@@ -1,4 +1,5 @@
 import userModel from "../User Models/users-mongo";
+import HttpResponse from "../../util/Error";
 import { placeTypes } from "./../../types";
 import places from "./places-mongo";
 export let DUMMY_PLACES: any = [
@@ -37,10 +38,10 @@ export const createPlaces = async (place: placeTypes["items"]) => {
   } = place;
   const user = await userModel.findById(creator);
   if (!user) {
-    return { message: "Could not find user provided for ID", status: 404 };
+    return new HttpResponse("Could not find user provided for ID", 404);
   }
   await places.create(place);
-  return {}
+  return new HttpResponse("Place successfully created", 201);
 };
 
 //GET A PLACE FROM THE DATABASE BY THE PLACE ID
