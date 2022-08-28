@@ -26,6 +26,15 @@ export let DUMMY_PLACES: any = [
 
 //CREATE A PLACE
 export const createPlaces = async (place: placeTypes["items"]) => {
+  const {
+    id,
+    description,
+    address,
+    image,
+    location: { lat, lng },
+    title,
+    creator,
+  } = place;
   await places.create(place);
 };
 
@@ -54,8 +63,8 @@ export const editPlaces = async (
   description: string
 ) => {
   const place = await places.updateOne({ _id: pid }, { title, description });
-  if(place.acknowledged !== true){
-    return {message:'couldnt update place', status:422}
+  if (place.acknowledged !== true) {
+    return { message: "couldnt update place", status: 422 };
   }
   return { message: "place udpated", status: 200 };
 };

@@ -28,8 +28,10 @@ export const httpCreatePlace: RequestHandler = async (req, res) => {
   if (!error.isEmpty()) {
     return res.status(422).json({ error: error.array() });
   }
+
+
   await createPlaces(req.body);
-  return res.status(201).json({ message: "created" });
+  return res.status(201).json({ message: "place created" });
 };
 
 //EDIT A PLACE

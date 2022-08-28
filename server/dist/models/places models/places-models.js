@@ -36,6 +36,7 @@ exports.DUMMY_PLACES = [
 ];
 //CREATE A PLACE
 const createPlaces = (place) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id, description, address, image, location: { lat, lng }, title, creator, } = place;
     yield places_mongo_1.default.create(place);
 });
 exports.createPlaces = createPlaces;
@@ -61,7 +62,7 @@ exports.getPlacesByUserId = getPlacesByUserId;
 const editPlaces = (pid, title, description) => __awaiter(void 0, void 0, void 0, function* () {
     const place = yield places_mongo_1.default.updateOne({ _id: pid }, { title, description });
     if (place.acknowledged !== true) {
-        return { message: 'couldnt update place', status: 422 };
+        return { message: "couldnt update place", status: 422 };
     }
     return { message: "place udpated", status: 200 };
 });
