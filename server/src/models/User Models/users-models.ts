@@ -1,7 +1,7 @@
 import { userTypes } from './../../types';
 import userModel from "./users-mongo";
 
-
+//GET ALL USERS
 export const getAllUsers = async () => {
   return await userModel.find({}, {__V:0})
 };

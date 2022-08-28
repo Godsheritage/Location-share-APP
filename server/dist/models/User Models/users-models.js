@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.signUpUsers = exports.signInUsers = exports.getAllUsers = void 0;
 const users_mongo_1 = __importDefault(require("./users-mongo"));
+//GET ALL USERS
 const getAllUsers = () => __awaiter(void 0, void 0, void 0, function* () {
     return yield users_mongo_1.default.find({}, { __V: 0 });
 });
