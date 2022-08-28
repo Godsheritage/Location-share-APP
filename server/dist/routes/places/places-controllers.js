@@ -1,53 +1,58 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.httpDeletePlace = exports.httpEditPlace = exports.httpCreatePlace = exports.httpFetchPlacesByUserID = exports.httpFetchPlacesByPlaceId = void 0;
 const places_models_1 = require("./../../models/places models/places-models");
 const places_models_2 = require("../../models/places models/places-models");
 const express_validator_1 = require("express-validator");
-//FETCH THE PLACES BY ID
-const httpFetchPlacesByPlaceId = (req, res) => {
+//GET PLACES BY PLACE ID
+const httpFetchPlacesByPlaceId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const placeId = req.params.pid;
-    const place = (0, places_models_2.getPlacesByPlaceId)(placeId);
-    if (!place) {
-        return res.status(404).json({ message: "could not find place" });
-    }
-    return res.status(200).json(place);
-};
+    const place = yield (0, places_models_2.getPlacesByPlaceId)(placeId);
+    return res.status(place.status).json(place);
+});
 exports.httpFetchPlacesByPlaceId = httpFetchPlacesByPlaceId;
-//to fetch the place by user ID
-const httpFetchPlacesByUserID = (req, res) => {
+//FETCH PLACE BY CREATOR ID
+const httpFetchPlacesByUserID = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userId = req.params.uid;
-    const place = (0, places_models_2.getPlacesByUserId)(userId);
-    if (!place) {
-        return res.status(404).json({ message: "could not find place" });
-    }
-    return res.status(200).json({ message: "place found", place });
-};
+    const place = yield (0, places_models_2.getPlacesByUserId)(userId);
+    return res.status(place.status).json(place);
+});
 exports.httpFetchPlacesByUserID = httpFetchPlacesByUserID;
-//to create a new place
-const httpCreatePlace = (req, res) => {
+//CREATE A NEW PLACE
+const httpCreatePlace = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const error = (0, express_validator_1.validationResult)(req);
     if (!error.isEmpty()) {
         return res.status(422).json({ error: error.array() });
     }
-    (0, places_models_2.createPlaces)(req.body);
+    yield (0, places_models_2.createPlaces)(req.body);
     return res.status(201).json({ message: "created" });
-};
+});
 exports.httpCreatePlace = httpCreatePlace;
-//to edit a place
-const httpEditPlace = (req, res) => {
+//EDIT A PLACE
+const httpEditPlace = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const error = (0, express_validator_1.validationResult)(req);
     if (!error.isEmpty()) {
-        return res.status(422).json({ error: error.array() });
+        return res.status(422).json({ message: error.array() });
     }
     const placeId = req.params.pid;
     const { title, description } = req.body;
-    return res.status(200).json((0, places_models_1.editPlaces)(placeId, title, description));
-};
+    const edit = yield (0, places_models_1.editPlaces)(placeId, title, description);
+    return res.status(edit.status).json(edit.message);
+});
 exports.httpEditPlace = httpEditPlace;
-//to delete a place
-const httpDeletePlace = (req, res) => {
+//DELETE A PLACE
+const httpDeletePlace = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const placeId = req.params.pid;
-    return res.status(200).json((0, places_models_2.deletePlaces)(placeId));
-};
+    const deleted = yield (0, places_models_2.deletePlaces)(placeId);
+    return res.status(deleted.status).json(deleted);
+});
 exports.httpDeletePlace = httpDeletePlace;

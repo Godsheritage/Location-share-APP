@@ -7,7 +7,7 @@ const schema: mongoose.Schema = new mongoose.Schema({
     lowercase: true,
     trim: true
   },
-  password: { required: true, min: 8, type: "[A-Za-z0-9]g" },
+  password: { required: true, min: 8, type:String },
   image: { required: true, type: String },
   places: { required: true, type: String },
 });

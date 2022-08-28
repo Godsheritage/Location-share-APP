@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -26,54 +35,44 @@ exports.DUMMY_PLACES = [
     },
 ];
 //CREATE A PLACE
-const createPlaces = (place) => {
-    // DUMMY_PLACES.push(place);
-    places_mongo_1.default.create(place);
-};
+const createPlaces = (place) => __awaiter(void 0, void 0, void 0, function* () {
+    yield places_mongo_1.default.create(place);
+});
 exports.createPlaces = createPlaces;
-//GET A PLACE BY ITS PLACE ID
-const getPlacesByPlaceId = (pid) => {
-    const foundPlace = places_mongo_1.default.findOne({ id: pid });
+//GET A PLACE FROM THE DATABASE BY THE PLACE ID
+const getPlacesByPlaceId = (pid) => __awaiter(void 0, void 0, void 0, function* () {
+    const foundPlace = yield places_mongo_1.default.findById(pid);
     if (!foundPlace) {
-        return 'place not found';
+        return { message: "could not find place", status: 404 };
     }
-    // const foundPlace = DUMMY_PLACES.find(
-    //   (place: placeTypes["items"]) => place.id === pid
-    // );
-    return foundPlace;
-};
+    return { message: "place found", status: 200, foundPlace };
+});
 exports.getPlacesByPlaceId = getPlacesByPlaceId;
-//GET A PLACE BY USER ID
-const getPlacesByUserId = (uid) => {
-    const foundPlace = places_mongo_1.default.findOne({ creator: uid });
-    // const foundPlace = DUMMY_PLACES.filter(
-    //   (place: placeTypes["items"]) => place.creator === uid
-    // );
+//GET A PLACE FROM THE DATABASE BY CREATOR ID
+const getPlacesByUserId = (uid) => __awaiter(void 0, void 0, void 0, function* () {
+    const foundPlace = yield places_mongo_1.default.find({ creator: uid });
     if (!foundPlace) {
-        return 'place not found';
+        return { message: "could not find place", status: 404 };
     }
-    return foundPlace;
-};
+    return { message: "place found", status: 200, foundPlace };
+});
 exports.getPlacesByUserId = getPlacesByUserId;
 //EDIT PLACES BY USER ID
-const editPlaces = (pid, title, description) => {
-    const foundPlace = Object.assign({}, exports.DUMMY_PLACES.find((place) => place.id === pid));
-    const foundIndex = exports.DUMMY_PLACES.findIndex((place) => place.id === pid);
-    if (!foundPlace || !foundIndex) {
-        return 'place not found';
+const editPlaces = (pid, title, description) => __awaiter(void 0, void 0, void 0, function* () {
+    const place = yield places_mongo_1.default.updateOne({ _id: pid }, { title, description });
+    if (place.acknowledged !== true) {
+        return { message: 'couldnt update place', status: 422 };
     }
-    foundPlace.title = title;
-    foundPlace.description = description;
-    exports.DUMMY_PLACES[foundIndex] = foundPlace;
-    return exports.DUMMY_PLACES[foundIndex];
-};
+    return { message: "place udpated", status: 200 };
+});
 exports.editPlaces = editPlaces;
-//DELETE PLACES BY USER ID
-const deletePlaces = (pid) => {
-    places_mongo_1.default.deleteOne({ id: pid });
-    // DUMMY_PLACES = DUMMY_PLACES.filter(
-    //   (place: placeTypes["items"]) => place.id !== pid
-    // );
-    return exports.DUMMY_PLACES;
-};
+//DELETE PLACES BY USER ID FROM THE DATABASE
+const deletePlaces = (pid) => __awaiter(void 0, void 0, void 0, function* () {
+    const place = yield places_mongo_1.default.findById(pid);
+    if (!place) {
+        return { message: "place not found", status: 404 };
+    }
+    yield places_mongo_1.default.deleteOne({ id: pid });
+    return { message: "place has been deleted", status: 200 };
+});
 exports.deletePlaces = deletePlaces;

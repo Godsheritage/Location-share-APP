@@ -12,7 +12,7 @@ export const signInUsers = async (email: string, password: string) => {
   // const foundUser = users.find((user:any) => user.email === email)
   if (!foundUser) {
     return { message: "user not found", status:404};
-  } else if (foundUser.password !== password, ) {
+  } else if (foundUser.password !== password) {
     return { message: "password is incorrect", status:404};
   } else {
     return { message: "logged in",status:200 ,foundUser };
